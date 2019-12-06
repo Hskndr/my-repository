@@ -118,8 +118,13 @@
               "devServerTarget": "gh-pages-hskndr-portfolio:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "gh-pages-hskndr-portfolio"
 }
