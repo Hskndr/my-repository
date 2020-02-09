@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('gh-pages-hskndr-portfolio app is running!');
+    expect(page.getTitleText()).toEqual('hskndr-portfolio app is running!');
   });
 
   afterEach(async () => {
