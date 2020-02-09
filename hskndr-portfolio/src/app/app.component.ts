@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  // todo: remove css from this component;
   title = 'hskndr-portfolio';
-  selectedValue: string = "";
-  items = [
-    { value: "0", view: "zero" },
-    { value: "1", view: "one" },
-    { value: "2", view: "Two" }
-  ];
 }
