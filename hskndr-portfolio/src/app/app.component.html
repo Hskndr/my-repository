@@ -1,31 +1,10 @@
-<mat-card>
+<div class="container">
+  <app-navbar></app-navbar>
 
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>Custom Toolbar</span>
-    </mat-toolbar-row>
+  <mat-card id="main">
 
-    <mat-toolbar-row>
-      <span>Second Line</span>
-      <span class="example-spacer"></span>
-      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>
-    </mat-toolbar-row>
+    <router-outlet></router-outlet>
+  </mat-card>
 
-    <mat-toolbar-row>
-      <span>Third Line</span>
-      <span class="example-spacer"></span>
-      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
-      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
-    </mat-toolbar-row>
-  </mat-toolbar>
-
-  <app-dashboard></app-dashboard>
-
-  <app-tree></app-tree>
-
-  <app-table></app-table>
-
-  <app-drag-drop></app-drag-drop>
-
-  <app-address></app-address>
-</mat-card>
+  <app-footer></app-footer>
+</div>

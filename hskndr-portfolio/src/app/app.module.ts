@@ -1,26 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+/* MODULES */
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatToolbarModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { DashboardComponent } from './dashboard/dashboard.component';
+/* MATERIAL MODULES */
+import {MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatToolbarModule} from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { LayoutModule } from '@angular/cdk/layout';
-import { AddressComponent } from './address/address.component';
 import { MatRadioModule } from '@angular/material/radio';
-import { TableComponent } from './table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { TreeComponent } from './tree/tree.component';
 import { MatTreeModule } from '@angular/material/tree';
-import { DragDropComponent } from './drag-drop/drag-drop.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+/* COMPONENTS */
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { HomeComponent, PortfolioComponent, AboutComponent } from './components';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { AddressComponent } from './address/address.component';
+import { DragDropComponent } from './drag-drop/drag-drop.component';
+import { TreeComponent } from './tree/tree.component';
+import { TableComponent } from './table/table.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +35,12 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     AddressComponent,
     TableComponent,
     TreeComponent,
-    DragDropComponent
+    DragDropComponent,
+    NavbarComponent,
+    HomeComponent,
+    FooterComponent,
+    PortfolioComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

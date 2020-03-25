@@ -8,4 +8,5 @@ import {Component} from '@angular/core';
 export class AppComponent {
   // todo: remove css from this component;
   title = 'hskndr-portfolio';
+
 }
