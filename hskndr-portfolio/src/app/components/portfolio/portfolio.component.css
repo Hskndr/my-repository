@@ -1,5 +1,5 @@
 .grid-container {
-  margin: 20px;
+  margin: 10px;
 }
 
 .dashboard-card {
@@ -8,6 +8,7 @@
   left: 15px;
   right: 15px;
   bottom: 15px;
+  min-height: 1rem;
 }
 
 .more-button {
@@ -16,11 +17,19 @@
   right: 10px;
 }
 
-.dashboard-card-content {
-  text-align: center;
+a {
+  color: #000000;
+  text-decoration: none;
 }
 
-.dashboard-card-content img {
-  width: 20%;
-  height: 20%;
+.dashboard-card-content {
+  text-align: justify;
+  margin-top: 5px;
+
+}
+
+.dashboard-card-content label {
+  font-weight: 500;
+  margin-top: 5px;
+
 }
