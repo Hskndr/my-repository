@@ -5,3 +5,8 @@ img{
 .copyright {
   font-size: 10px;
 }
+
+.footer{
+  display: inline-block;
+
+}

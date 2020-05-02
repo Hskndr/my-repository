@@ -1,4 +1,14 @@
-<h2>Hiskander Aguillon</h2>
-<h3>Desarrollador Web</h3>
-<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorum ducimus enim fugiat in, inventore ipsa ipsum
-  iste itaque natus necessitatibus ratione rerum sed similique sint soluta vero, vitae voluptatibus?</h4>
+<div class="container-about m-5">
+  <div class="media">
+    <img src="assets/fotoPerfil.jpg" class="align-self-start mr-3 img-thumbnail" alt="..." />
+    <div class="media-body">
+      <h5 class="mt-0">{{ developer.profession }}</h5>
+      <p>{{ developer.name }} {{ developer.lastName }}</p>
+      <p>{{ developer.extract }}</p>
+      <p>Habilidades</p>
+      <p>
+        <span class="badge badge-secondary">{{ developer.skills }}</span>
+      </p>
+    </div>
+  </div>
+</div>

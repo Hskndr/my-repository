@@ -1,18 +1,36 @@
-<mat-toolbar color="primary">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="home">{{ hskndr }} </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav" routerLinkActive="active">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="home">Home</a>
+      </li>
 
-  <span > <a routerLink="home">Hiskander Aguillon</a></span>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="about">About</a>
+      </li>
 
-  <!-- This fills the remaining space of the current row -->
-  <span class="example-fill-remaining-space"></span>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="portfolio">Portfolio</a>
+      </li>
 
-  <span>PORTFOLIO</span>
-  <!-- This fills the remaining space of the current row -->
-  <span class="example-fill-remaining-space"></span>
-
-  <button mat-button [matMenuTriggerFor]="menu">Menu</button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="portfolio">Portfolio</button>
-    <button mat-menu-item routerLink="about">About</button>
-
-  </mat-menu>
-</mat-toolbar>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="blog">Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="shopping">Tienda</a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -18,28 +18,17 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTreeModule } from '@angular/material/tree';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 /* COMPONENTS */
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { HomeComponent, PortfolioComponent, AboutComponent } from './components';
+import { HomeComponent, AboutComponent } from './components';
 import { FooterComponent } from './components/shared/footer/footer.component';
-import { AddressComponent } from './address/address.component';
-import { DragDropComponent } from './drag-drop/drag-drop.component';
-import { TreeComponent } from './tree/tree.component';
-import { TableComponent } from './table/table.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
-    AddressComponent,
-    TableComponent,
-    TreeComponent,
-    DragDropComponent,
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    PortfolioComponent,
     AboutComponent
   ],
   imports: [
