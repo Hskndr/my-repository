@@ -1,4 +1,4 @@
-img{
+img {
   margin-left: 10px;
 }
 
@@ -6,7 +6,8 @@ img{
   font-size: 10px;
 }
 
-.footer{
+.footer {
   display: inline-block;
-
+  background-color: rgba(229,85,40,0.5);
+  color: rgba(0,0,0);
 }
