@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "portfolio-login-392bb": {
+      "hosting": {
+        "hskndr-portfolio": [
+          "portfolio-login-392bb"
+        ]
+      }
+    }
+  }
+}

@@ -1,18 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
 /*General*/
-body{
-  background-color: rgb(22,26,47);
+
+body {
+  background-color: rgb(22, 26, 47);
   color: gray;
 }
-.orange{
-  color: rgba(229,85,40,0.5)!important;
+
+.orange {
+  color: rgba(229, 85, 40, 0.5)!important;
 }
-.card{
-  background-color:rgba(0,0,0,0.3);
+
+.card {
+  background-color: rgba(0, 0, 0, 0.3);
 }
-.building{
+
+.building {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 83vh;
 }
+

@@ -21,6 +21,10 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent, AboutComponent } from './components';
 import { FooterComponent } from './components/shared/footer/footer.component';
+/* FIREBASE */
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -51,7 +55,9 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     MatSortModule,
     MatTreeModule,
     DragDropModule,
-    MatToolbarModule
+    MatToolbarModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
