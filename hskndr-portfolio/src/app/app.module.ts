@@ -25,6 +25,7 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+import { SendEmailComponent } from './auth/send-email/send-email.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { environment } from '../environments/environment';
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    AboutComponent
+    AboutComponent,
+    SendEmailComponent
   ],
   imports: [
     BrowserModule,

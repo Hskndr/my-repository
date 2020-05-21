@@ -33,7 +33,7 @@ export class LregisterComponent implements OnInit {
       const user = this.authSvc.register(email, password);
       if (user) {
         //redirecto login
-        this.router.navigate(['/login']);
+        this.router.navigate(['/verification-email']);
       }
     } catch (error) {
       console.log(error);

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent, AboutComponent } from './components';
+import { SendEmailComponent } from './auth/send-email/send-email.component';
 
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'portfolio', loadChildren: () => import('./modules/portfolio/portfolio.module').then(m => m.PortfolioModule) },
   { path: 'blog', loadChildren: () => import('./modules/blog/blog.module').then(m => m.BlogModule) },
   { path: 'shopping', loadChildren: () => import('./modules/shopping/shopping.module').then(m => m.ShoppingModule) },
+  { path: 'verification-email', component: SendEmailComponent },
   { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' },
