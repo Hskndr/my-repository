@@ -1,39 +1,55 @@
+import { User } from './../../components/shared/models/user.interface';
 import { Injectable } from '@angular/core';
-import { auth } from 'firebase/app';
-import { User } from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { first } from 'rxjs/operators';
+import { auth } from 'firebase/app';
+import { first, switchMap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { RoleValidator } from '../helpers/roleValidator';
+
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  public user: User;
+export class AuthService extends RoleValidator {
+  public user$: Observable<User>;
 
   constructor(
-    public afAuth: AngularFireAuth
-  ) { }
+    public afAuth: AngularFireAuth,
+    private afs: AngularFirestore
+  ) {
+    super();
+    this.user$ = this.afAuth.authState.pipe(
+      switchMap((user) => {
+        if (user) {
+          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+        }
+        return of(null);
+      })
+    );
+  }
 
   //Login Method
-  async login(email: string, password: string) {
+  async login(email: string, password: string): Promise<User> {
     try {
-      const result = await this.afAuth.auth.signInWithEmailAndPassword(
+      const { user } = await this.afAuth.auth.signInWithEmailAndPassword(
         email,
         password
       );
-      return result;
+      this.updateUserData(user);
+      return user;
     } catch (error) {
       console.log(error);
     }
   }
   //Register Method
-  async register(email: string, password: string) {
+  async register(email: string, password: string): Promise<User> {
     try {
-      const result = await this.afAuth.auth.createUserWithEmailAndPassword(
+      const { user } = await this.afAuth.auth.createUserWithEmailAndPassword(
         email,
         password
       );
       this.sendVerificationEmail();
-      return result;
+      return user;
     } catch (error) {
       console.log(error);
     }
@@ -55,7 +71,44 @@ export class AuthService {
   async sendVerificationEmail(): Promise<void> {
     return (await this.afAuth.auth.currentUser).sendEmailVerification();
   }
+  // Reset Password
+  async resetPassword(email: string): Promise<void> {
+    try {
+      return this.afAuth.auth.sendPasswordResetEmail(email);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  // Google login
+  async loginGoogle(): Promise<User> {
+    try {
+      const { user } = await this.afAuth.auth.signInWithPopup(
+        new auth.GoogleAuthProvider()
+        );
+      this.updateUserData(user);
+      return user;
 
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  private updateUserData(user: User) {
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(
+      `users/${user.uid}`
+    );
+
+    const data: User = {
+      uid: user.uid,
+      email: user.email,
+      emailVerified: user.emailVerified,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      role: 'EDITOR',
+    };
+
+    return userRef.set(data, { merge: true });
+  }
   // ******
 }
 

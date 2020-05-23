@@ -4,9 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 /* MATERIAL MODULES */
-import {MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatToolbarModule} from '@angular/material';
+import { MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatToolbarModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
@@ -22,10 +22,16 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent, AboutComponent } from './components';
 import { FooterComponent } from './components/shared/footer/footer.component';
 /* FIREBASE */
-import {AngularFireModule} from '@angular/fire';
-import {AngularFireAuthModule} from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { SendEmailComponent } from './auth/send-email/send-email.component';
+/* SERVICES */
+import { AuthService } from './auth/services/auth.service';
+/* GUARDS */
+import { CanEditGuard } from './auth/guards/can-edit.guard';
+import { CanSuscriptorGuard } from './auth/guards/can-suscriptor.guard';
+import { CanAdminGuard } from './auth/guards/can-admin.guard';
 
 
 @NgModule({
@@ -61,7 +67,12 @@ import { SendEmailComponent } from './auth/send-email/send-email.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    CanEditGuard,
+    CanAdminGuard,
+    CanSuscriptorGuard,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
