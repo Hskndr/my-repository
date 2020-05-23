@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -9,7 +9,7 @@ import { User } from '../models/user.interface';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent /* implements OnInit */ {
+export class NavbarComponent {
   hskndr: string = "<HSKNDR>"
 
   //public isLogged = false;

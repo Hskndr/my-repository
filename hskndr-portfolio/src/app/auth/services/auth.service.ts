@@ -2,7 +2,7 @@ import { User } from './../../components/shared/models/user.interface';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
-import { first, switchMap } from 'rxjs/operators';
+import { switchMap, first } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { RoleValidator } from '../helpers/roleValidator';
@@ -10,6 +10,7 @@ import { RoleValidator } from '../helpers/roleValidator';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService extends RoleValidator {
   public user$: Observable<User>;
 
@@ -67,10 +68,12 @@ export class AuthService extends RoleValidator {
   getCurrentUser() {
     return this.afAuth.authState.pipe(first()).toPromise();
   }
+
   //Send email Method
   async sendVerificationEmail(): Promise<void> {
     return (await this.afAuth.auth.currentUser).sendEmailVerification();
   }
+
   // Reset Password
   async resetPassword(email: string): Promise<void> {
     try {
@@ -79,12 +82,13 @@ export class AuthService extends RoleValidator {
       console.log(error);
     }
   }
+
   // Google login
   async loginGoogle(): Promise<User> {
     try {
       const { user } = await this.afAuth.auth.signInWithPopup(
         new auth.GoogleAuthProvider()
-        );
+      );
       this.updateUserData(user);
       return user;
 

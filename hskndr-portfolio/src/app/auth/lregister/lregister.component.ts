@@ -31,7 +31,7 @@ export class LregisterComponent implements OnInit {
     //Extraer email y password del formulario
     const { email, password } = this.registerForm.value;
     try {
-      const user = this.authSvc.register(email, password);
+      const user = await this.authSvc.register(email, password);
       if (user) {
         this.checkUserIsVerified(user);
       }

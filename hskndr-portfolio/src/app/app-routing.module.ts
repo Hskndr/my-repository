@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'verification-email', component: SendEmailComponent },
   { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent },
-  { path: '**', pathMatch: 'full', redirectTo: 'home' },
+  { path: '**', pathMatch: 'full', redirectTo: '/home' },
 ];
 
 @NgModule({

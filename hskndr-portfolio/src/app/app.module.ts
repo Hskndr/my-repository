@@ -26,6 +26,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { SendEmailComponent } from './auth/send-email/send-email.component';
+import { AngularFirestore } from '@angular/fire/firestore';
 /* SERVICES */
 import { AuthService } from './auth/services/auth.service';
 /* GUARDS */
@@ -72,6 +73,7 @@ import { CanAdminGuard } from './auth/guards/can-admin.guard';
     CanEditGuard,
     CanAdminGuard,
     CanSuscriptorGuard,
+    AngularFirestore,
   ],
   bootstrap: [AppComponent]
 })
