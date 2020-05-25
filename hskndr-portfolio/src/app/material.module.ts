@@ -2,7 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 /* MATERIAL MODULES */
-import { MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatToolbarModule, MatSidenavModule, MatListModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatIconModule,
+  MatInputModule,
+  MatSelectModule,
+  MatToolbarModule,
+  MatSidenavModule,
+  MatListModule
+} from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
@@ -42,6 +50,7 @@ const matModules = [
     CommonModule,
     matModules
   ],
-  exports: [matModules]
+  exports: [matModules,
+  ]
 })
 export class MaterialModule { }

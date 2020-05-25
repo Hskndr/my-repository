@@ -8,15 +8,17 @@ const routes: Routes = [
   {
     path: '',
     component: BlogComponent
+
   },
   {
     path: 'post/:id',
     component: PostComponent
   },
- /*  {
+  {
     path: 'posts',
     loadChildren: () => import('./components/posts/list-posts/list-posts.module').then(m => m.ListPostsModule)
-  }, */
+  },
+
   {
     path: 'home',
     loadChildren: () => import('./components/pages/home/home.module').then(m => m.HomeModule)

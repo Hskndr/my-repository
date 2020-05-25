@@ -32,7 +32,9 @@ import { MaterialModule } from './material.module';
     HomeComponent,
     FooterComponent,
     AboutComponent,
-    SendEmailComponent
+    SendEmailComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -51,6 +53,7 @@ import { MaterialModule } from './material.module';
     CanSuscriptorGuard,
     AngularFirestore,
   ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
