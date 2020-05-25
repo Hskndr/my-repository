@@ -15,7 +15,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { SendEmailComponent } from './auth/send-email/send-email.component';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule, StorageBucket } from '@angular/fire/storage';
 /* SERVICES */
 import { AuthService } from './auth/services/auth.service';
 /* GUARDS */
@@ -45,6 +46,11 @@ import { MaterialModule } from './material.module';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     MaterialModule,
+    //Para el Blog
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+
+
   ],
   providers: [
     AuthService,
@@ -52,6 +58,8 @@ import { MaterialModule } from './material.module';
     CanAdminGuard,
     CanSuscriptorGuard,
     AngularFirestore,
+    //Blog
+    { provide: StorageBucket, useValue: 'gs://portfolio-login-392bb.appspot.com' }
   ],
   exports: [],
   bootstrap: [AppComponent]
