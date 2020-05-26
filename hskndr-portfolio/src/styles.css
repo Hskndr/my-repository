@@ -22,6 +22,27 @@ body {
   height: 83vh;
 }
 
+.container-spinner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.sport{
+  background-color: blue !important;
+}
+.life{
+  background-color: orangered !important;
+}
+.style{
+  background-color: red !important;
+}
+
+mat-chip .mat-chip.mat-primary.mat-standart-chip{
+  min-height: 1rem;
+  padding: 9px;
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

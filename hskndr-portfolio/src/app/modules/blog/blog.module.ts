@@ -20,6 +20,6 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     MaterialModule,
 
   ],
-  exports: []
+  exports: [ToolbarComponent]
 })
 export class BlogModule { }

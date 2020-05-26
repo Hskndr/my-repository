@@ -1,15 +1,15 @@
-import { PostService } from './../../posts/post.service';
+import { PostService } from '../../posts/post.service';
 import { Component, OnInit } from '@angular/core';
 import { PostI } from '../../../shared/post.interface';
 import { Observable } from 'rxjs';
 
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'app-home-blog',
+  templateUrl: './home-blog.component.html',
+  styleUrls: ['./home-blog.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeBlogComponent implements OnInit {
 
   public posts$: Observable<PostI[]>;
 

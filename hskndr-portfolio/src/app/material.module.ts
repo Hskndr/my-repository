@@ -9,7 +9,10 @@ import {
   MatSelectModule,
   MatToolbarModule,
   MatSidenavModule,
-  MatListModule
+  MatListModule,
+  MatProgressSpinnerModule,
+  MatDividerModule,
+  MatChipsModule
 } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
@@ -42,7 +45,10 @@ const matModules = [
   MatMenuModule,
   MatToolbarModule,
   MatSidenavModule,
-  MatListModule
+  MatListModule,
+  MatProgressSpinnerModule,
+  MatDividerModule,
+  MatChipsModule
 ];
 @NgModule({
   declarations: [],
