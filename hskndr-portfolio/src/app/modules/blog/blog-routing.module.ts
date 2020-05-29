@@ -15,14 +15,11 @@ const routes: Routes = [
     component: PostComponent
   },
   {
-    path: 'posts',
-    loadChildren: () => import('./components/posts/list-posts/list-posts.module').then(m => m.ListPostsModule)
-  },
-
-  {
     path: 'home-blog',
     loadChildren: () => import('./components/pages/home-blog/home-blog.module').then(m => m.HomeBlogModule)
-  }
+  },
+  { path: 'blog-admin', loadChildren: () => import('./components/blog-admin/blog-admin.module').then(m => m.BlogAdminModule) },
+  { path: 'blog-login', loadChildren: () => import('./components/blog-login/blog-login.module').then(m => m.BlogLoginModule) }
 ];
 
 @NgModule({

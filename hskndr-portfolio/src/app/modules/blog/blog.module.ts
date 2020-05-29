@@ -9,6 +9,7 @@ import { NewPostComponent } from './components/posts/new-post/new-post.component
 import { PostComponent } from './components/posts/post/post.component';
 import { MaterialModule } from '../../material.module';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     BlogRoutingModule,
     NewPostModule,
     MaterialModule,
-
+    ReactiveFormsModule,
   ],
   exports: [ToolbarComponent]
 })

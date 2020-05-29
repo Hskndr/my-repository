@@ -1,9 +1,32 @@
 <mat-toolbar color="primary">
-  <a [routerLink]="['/blog/home-blog']">Hskndr Blog</a>
-  <span class="tool-bar-space"></span>
-  <a [routerLink]="['/blog/posts']">posts</a>
+  <a [routerLink]="['/blog/home-blog']">
+    Hskndr Blog
+  </a>
+
   <span class="tool-bar-space"></span>
 
-  <a [routerLink]="['/blog/post/1']">Post/1</a>
+
+
+  <a [routerLink]="['/blog/blog-admin']" routerLinkActive="active"
+  *ngIf="authBlogSvc.userData | async">
+    <button mat-button>
+      Admin
+    </button>
+  </a>
+
+  <a *ngIf="authBlogSvc.userData | async; else showLogin" (click)="onBlogLogout()">
+    <button mat-button>
+      Login - Logout
+    </button>
+  </a>
+
+  <ng-template #showLogin>
+    <a [routerLink]="['/blog/blog-login']" routerLinkActive="active">
+      <button mat-button>
+        Login / Logout
+      </button>
+    </a>
+  </ng-template>
+
 
 </mat-toolbar>
