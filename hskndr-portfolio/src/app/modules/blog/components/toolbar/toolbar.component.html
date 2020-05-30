@@ -4,29 +4,43 @@
   </a>
 
   <span class="tool-bar-space"></span>
+  <a
+    [routerLink]="['/blog/blog-admin']"
+    routerLinkActive="active"
 
-
-
-  <a [routerLink]="['/blog/blog-admin']" routerLinkActive="active"
-  *ngIf="authBlogSvc.userData | async">
+  >
     <button mat-button>
       Admin
     </button>
   </a>
 
-  <a *ngIf="authBlogSvc.userData | async; else showLogin" (click)="onBlogLogout()">
+
+
+
+  <a
+    [routerLink]="['/blog/blog-admin']"
+    routerLinkActive="active"
+    *ngIf="authBlogSvc.userData | async"
+  >
     <button mat-button>
-      Login - Logout
+      Admin
+    </button>
+  </a>
+
+  <a
+    *ngIf="authBlogSvc.userData | async; else showLogin"
+    (click)="onBlogLogout()"
+  >
+    <button mat-button>
+      Logout
     </button>
   </a>
 
   <ng-template #showLogin>
     <a [routerLink]="['/blog/blog-login']" routerLinkActive="active">
       <button mat-button>
-        Login / Logout
+        Login
       </button>
     </a>
   </ng-template>
-
-
 </mat-toolbar>

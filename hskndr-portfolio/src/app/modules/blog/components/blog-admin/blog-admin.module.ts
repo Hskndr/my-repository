@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BlogAdminRoutingModule } from './blog-admin-routing.module';
 import { BlogAdminComponent } from './blog-admin.component';
 import { BlogModule } from '../../blog.module';
+import { MaterialModule } from '../../../../material.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { BlogModule } from '../../blog.module';
   imports: [
     CommonModule,
     BlogAdminRoutingModule,
-    BlogModule
+    BlogModule,
+    MaterialModule
   ]
 })
 export class BlogAdminModule { }

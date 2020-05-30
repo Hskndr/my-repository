@@ -3,7 +3,27 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { BlogAdminComponent } from './blog-admin.component';
 
-const routes: Routes = [{ path: '', component: BlogAdminComponent }];
+const routes: Routes = [
+  {
+    path: '',
+    component: BlogAdminComponent,
+    children: [
+      {
+        path: 'posts',
+        loadChildren: () => import('../posts/list-posts/list-posts.module').then(
+          m => m.ListPostsModule
+        )
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('./profile/profile.module').then(
+          m => m.ProfileModule
+          )
+        }
+
+    ]
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

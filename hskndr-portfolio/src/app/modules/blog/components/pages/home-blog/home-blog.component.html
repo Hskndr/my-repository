@@ -1,10 +1,8 @@
-<app-toolbar></app-toolbar>
-
 <div class="container" *ngIf="posts$ | async as posts; else loading">
   <mat-card class="post-card" *ngFor="let post of posts">
     <mat-card-header>
       <mat-card-title>
-        <a [routerLink]="['/post',post.id]">
+        <a [routerLink]="['/post', post.id]">
           {{ post.titlePost }}
         </a>
       </mat-card-title>
@@ -16,15 +14,12 @@
     <mat-divider></mat-divider>
     <mat-card-actions>
       <mat-chip-list>
-         <mat-chip selected *ngFor="let tag of post.tagsPost"
-         [ngClass]="tag"
-         >
-            {{tag}}
-         </mat-chip>
+        <mat-chip selected *ngFor="let tag of post.tagsPost" [ngClass]="tag">
+          {{ tag }}
+        </mat-chip>
       </mat-chip-list>
     </mat-card-actions>
-
-   </mat-card>
+  </mat-card>
 </div>
 
 <!-- Para cuando esté cargando -->
