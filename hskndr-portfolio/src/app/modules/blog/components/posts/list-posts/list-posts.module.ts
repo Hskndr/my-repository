@@ -4,14 +4,17 @@ import { CommonModule } from '@angular/common';
 import { ListPostsRoutingModule } from './list-posts-routing.module';
 import { ListPostsComponent } from './list-posts.component';
 import { BlogModule } from '../../../blog.module';
+import { MaterialModule } from '../../../../../material.module';
+import { TableComponent } from '../../../shared/components/table/table.component';
 
 
 @NgModule({
-  declarations: [ListPostsComponent],
+  declarations: [ListPostsComponent, TableComponent],
   imports: [
     CommonModule,
     ListPostsRoutingModule,
-    BlogModule
+    BlogModule,
+    MaterialModule
   ]
 })
 export class ListPostsModule { }

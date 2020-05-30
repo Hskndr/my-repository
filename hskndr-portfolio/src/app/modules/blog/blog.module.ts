@@ -14,7 +14,13 @@ import { ContainerAppComponent } from './components/pages/container-app/containe
 
 
 @NgModule({
-  declarations: [BlogComponent, NewPostComponent, PostComponent, ToolbarComponent, ContainerAppComponent ],
+  declarations: [
+    BlogComponent,
+    NewPostComponent,
+    PostComponent,
+    ToolbarComponent,
+    ContainerAppComponent,
+  ],
   imports: [
     CommonModule,
     BlogRoutingModule,

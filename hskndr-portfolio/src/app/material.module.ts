@@ -48,7 +48,8 @@ const matModules = [
   MatListModule,
   MatProgressSpinnerModule,
   MatDividerModule,
-  MatChipsModule
+  MatChipsModule,
+  MatSortModule
 ];
 @NgModule({
   declarations: [],
