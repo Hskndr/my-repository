@@ -1,17 +1,26 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, finalize } from 'rxjs/operators';
 import { PostI } from '../../shared/post.interface';
+import { FileI } from '../../shared/file.interface';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
+  private postsCollection: AngularFirestoreCollection<PostI>;
+  private filePath: any;
+  private downloadURL: Observable<string>;
 
-  constructor(private afs: AngularFirestore) {
 
+  constructor(
+    private afs: AngularFirestore,
+    private storage: AngularFireStorage,
+  ) {
+    this.postsCollection = afs.collection<PostI>('posts');
   }
 
   //Métodos
@@ -32,4 +41,52 @@ export class PostService {
   public getOnePost(id: PostI): Observable<PostI> {
     return this.afs.doc<PostI>(`post/${id}`).valueChanges();
   }
+
+  //Borrar un post
+  public deletePostById(post: PostI) {
+    return this.postsCollection.doc(post.id).delete();
+  }
+
+  //Editar un post
+  public editPostById(post: PostI) {
+    return this.postsCollection.doc(post.id).update(post);
+
+  }
+
+  //PreCargar imagen
+  public preAddAndUpdatePost(post: PostI, image: FileI): void {
+    this.uploadImage(post, image);
+  }
+
+  //Para crear y editar el post
+  private savePost(post: PostI) {
+    const postObj = {
+      titlePost: post.titlePost,
+      contentPost: post.contentPost,
+      imagePost: this.downloadURL,
+      fileRef: this.filePath,
+      tagsPost: post.tagsPost,
+    };
+    //TODO editpost
+    this.postsCollection.add(postObj);
+  }
+
+  //Cargar imagen
+  private uploadImage(post: PostI, image: FileI) {
+    this.filePath = `images/${image.name}`;
+    const fileRef = this.storage.ref(this.filePath);
+    const task = this.storage.upload(this.filePath, image);
+    task.snapshotChanges().pipe(
+      finalize(() => {
+        fileRef.getDownloadURL().subscribe(urlImage => {
+          this.downloadURL = urlImage;
+          console.log('URL_IMAGE', urlImage);
+          console.log('POST', post);
+          //CALL ADD
+          this.savePost(post);
+        });
+      })
+    ).subscribe();
+  }
+
 }

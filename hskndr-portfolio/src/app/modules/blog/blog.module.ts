@@ -11,6 +11,7 @@ import { MaterialModule } from '../../material.module';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContainerAppComponent } from './components/pages/container-app/container-app.component';
+import { ModalComponent } from './shared/components/modal/modal.component';
 
 
 @NgModule({
@@ -20,7 +21,9 @@ import { ContainerAppComponent } from './components/pages/container-app/containe
     PostComponent,
     ToolbarComponent,
     ContainerAppComponent,
+    ModalComponent,
   ],
+  entryComponents: [ModalComponent],
   imports: [
     CommonModule,
     BlogRoutingModule,

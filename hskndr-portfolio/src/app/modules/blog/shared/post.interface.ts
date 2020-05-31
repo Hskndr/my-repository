@@ -2,7 +2,7 @@ export interface PostI {
   id?: string;
   titlePost: string;
   contentPost: string;
-  imagePost: string;
+  imagePost: any;
   tagsPost: string;
   fileRef?: string;
 

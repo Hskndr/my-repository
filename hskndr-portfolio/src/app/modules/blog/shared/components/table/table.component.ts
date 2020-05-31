@@ -1,15 +1,11 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator, MatSort } from '@angular/material';
+import { MatPaginator, MatSort, MatDialog } from '@angular/material';
 import { PostService } from '../../../components/posts/post.service';
 import { PostI } from '../../post.interface';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
+import Swal from 'sweetalert2';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-table',
@@ -25,7 +21,8 @@ export class TableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(
-    private postSvc: PostService
+    private postSvc: PostService,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -45,14 +42,43 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   onEditPost(post: PostI) {
     console.log('Edit post', post);
+
   }
 
   onDeletePost(post: PostI) {
-    console.log('Delete post', post);
+    //Genera el Modal
+    Swal.fire({
+      title: 'Are you sure?',
+      text: `You won´t be able to revert this!`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then(result => {
+      if (result.value) {
+        this.postSvc.deletePostById(post).then(() => {
+          Swal.fire('Deleted', 'Your post has been deleted', 'success');
+
+        }).catch((error) => {
+          Swal.fire('Error', 'There was an error deleting this post!', 'error');
+
+        });
+      }
+    })
   }
 
+  //Crear un nuevo Post
   onNewPost() {
     console.log('New post');
+    this.openDialog();
+
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ModalComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result ${result}`);
+    })
+  }
 }
