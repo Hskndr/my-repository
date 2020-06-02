@@ -13,8 +13,8 @@ import { ModalComponent } from '../modal/modal.component';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['titlePost', 'tagsPost', 'actions'];
 
+  displayedColumns: string[] = ['titlePost', 'tagsPost', 'actions'];
   dataSource = new MatTableDataSource();
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -26,7 +26,9 @@ export class TableComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit(): void {
-    this.postSvc.getAllPosts().subscribe(posts => this.dataSource.data = posts);
+    this.postSvc
+    .getAllPosts()
+    .subscribe(posts => this.dataSource.data = posts);
   }
 
   ngAfterViewInit() {
@@ -42,6 +44,7 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   onEditPost(post: PostI) {
     console.log('Edit post', post);
+    this.openDialog(post);
 
   }
 
@@ -65,20 +68,25 @@ export class TableComponent implements OnInit, AfterViewInit {
 
         });
       }
-    })
+    });
   }
 
   //Crear un nuevo Post
   onNewPost() {
-    console.log('New post');
     this.openDialog();
-
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(ModalComponent);
+  openDialog(post?: PostI): void {
+    const config = {
+      data: {
+        message: post ? 'Edit Post' : 'New Post',
+        content: post
+      }
+    };
+
+    const dialogRef = this.dialog.open(ModalComponent, config);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result ${result}`);
-    })
+    });
   }
 }

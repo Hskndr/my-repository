@@ -19,7 +19,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 83vh;
+  min-height: 83vh;
 }
 
 .container-spinner{
@@ -39,6 +39,7 @@ body {
   background-color: red !important;
 }
 
+/*TOOLBAR*/
 .tool-bar-space {
   /* This fills the remaining space, by using flexbox.
      Every toolbar row uses a flexbox row layout. */
@@ -48,6 +49,10 @@ body {
 mat-chip .mat-chip.mat-primary.mat-standart-chip{
   min-height: 1rem;
   padding: 9px;
+}
+
+mat-toolbar #tool-bar-blog .mat-toolbar .mat-primary .mat-toolbar-single-row {
+  background: orange !important;
 }
 
 html, body { height: 100%; }

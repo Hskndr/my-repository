@@ -48,8 +48,15 @@ export class PostService {
   }
 
   //Editar un post
-  public editPostById(post: PostI) {
-    return this.postsCollection.doc(post.id).update(post);
+  public editPostById(post: PostI, newImage?: FileI) {
+    if (newImage) {
+      this.uploadImage(post, newImage);
+    } else {
+      return this.postsCollection.doc(post.id).update(post);
+    }
+
+
+
 
   }
 
@@ -68,7 +75,12 @@ export class PostService {
       tagsPost: post.tagsPost,
     };
     //TODO editpost
-    this.postsCollection.add(postObj);
+    //Verificar si tiene id
+    if (post.id) {
+      return this.postsCollection.doc(post.id).update(postObj);
+    } else {
+      return this.postsCollection.add(postObj);
+    }
   }
 
   //Cargar imagen
