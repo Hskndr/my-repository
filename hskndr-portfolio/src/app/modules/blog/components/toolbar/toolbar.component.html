@@ -1,4 +1,4 @@
-<mat-toolbar id="tool-bar-blog">
+<mat-toolbar id="tool-bar-blog" color="primary">
   <a [routerLink]="['/blog/home-blog']">
     Hskndr Blog
   </a>
@@ -20,7 +20,7 @@
   <a
     [routerLink]="['/blog/blog-admin']"
     routerLinkActive="active"
-    *ngIf="authBlogSvc.userData | async"
+    *ngIf="authBlogSvc.userData$ | async"
   >
     <button mat-button>
       Admin
@@ -28,7 +28,7 @@
   </a>
 
   <a
-    *ngIf="authBlogSvc.userData | async; else showLogin"
+    *ngIf="authBlogSvc.userData$ | async; else showLogin"
     (click)="onBlogLogout()"
   >
     <button mat-button>
