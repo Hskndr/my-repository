@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-blog-login',
   templateUrl: './blog-login.component.html',
-  styleUrls: ['./blog-login.component.css']
+  styleUrls: ['./blog-login.component.scss']
 })
 export class BlogLoginComponent implements OnInit {
   blogLoginForm = new FormGroup({

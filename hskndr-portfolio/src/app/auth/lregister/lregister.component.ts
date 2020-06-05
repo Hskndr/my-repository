@@ -7,7 +7,7 @@ import { User } from 'src/app/components/shared/models/user.interface';
 @Component({
   selector: 'app-lregister',
   templateUrl: './lregister.component.html',
-  styleUrls: ['./lregister.component.css']
+  styleUrls: ['./lregister.component.scss']
 })
 export class LregisterComponent implements OnInit {
   //Método

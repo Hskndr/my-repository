@@ -1,10 +1,14 @@
-
-.jumbotron{
- background-color: rgb(22,26,47)!important;
+.jumbotron {
+  background-color: rgb(22, 26, 47)!important;
   border: none !important;
 }
 
-.btn-outline-warning{
-  color: rgba(229,85,40,0.5)!important;
-  border-color: rgba(229,85,40,0.5)!important;
+.btn-outline-warning {
+  color: rgba(229, 85, 40, 0.5)!important;
+  border-color: rgba(229, 85, 40, 0.5)!important;
+}
+
+.btn-outline-warning:hover {
+  background: rgba(110, 33, 10, 0.8);
+  color: #fff !important;
 }

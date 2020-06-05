@@ -1,0 +1,15 @@
+.btn-google {
+  width: 100%;
+  &:hover {
+    border-color: #dd4b39;
+  }
+}
+
+button {
+  width: 100%;
+  color: #fff;
+  background: rgba(229, 85, 40, 0.8);
+  &:hover {
+    background: rgba(110, 33, 10, 0.8);
+  }
+}
