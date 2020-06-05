@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { BlogComponent } from './blog.component';
-import { PostComponent } from './components/posts/post/post.component';
-import { ContainerAppComponent } from './components/pages/container-app/container-app.component';
+import { DetailsPostComponent } from './components/posts/details-post/details-post.component';
 
 const routes: Routes = [
   {
@@ -15,8 +14,8 @@ const routes: Routes = [
         loadChildren: () => import('./components/pages/home-blog/home-blog.module').then(m => m.HomeBlogModule)
       },
       {
-        path: 'post/:id',
-        component: PostComponent
+        path: 'blog-post/:id',
+        component: DetailsPostComponent
       },
     ]
   },

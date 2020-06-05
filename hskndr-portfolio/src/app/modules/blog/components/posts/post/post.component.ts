@@ -11,16 +11,8 @@ import { Observable } from 'rxjs';
 })
 export class PostComponent implements OnInit {
 
-  public post$: Observable<PostI>;
-  constructor(
-    private route: ActivatedRoute,
-    private postSvc: PostService,
-  ) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    //Esto recupera el id del post
-    const idPost = this.route.snapshot.params.id;
-    this.post$ = this.postSvc.getOnePost(idPost);
-  }
+  ngOnInit() { }
 
 }

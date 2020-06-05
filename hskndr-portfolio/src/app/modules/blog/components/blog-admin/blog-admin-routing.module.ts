@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { BlogAdminComponent } from './blog-admin.component';
+import { AuthBlogGuard } from '../../shared/guards/auth-blog.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: BlogAdminComponent,
+    canActivate: [AuthBlogGuard],
     children: [
       {
         path: 'posts',
@@ -18,8 +20,8 @@ const routes: Routes = [
         path: 'profile',
         loadChildren: () => import('./profile/profile.module').then(
           m => m.ProfileModule
-          )
-        }
+        )
+      }
 
     ]
   }

@@ -39,7 +39,7 @@ export class PostService {
 
   //Obtener un Post
   public getOnePost(id: PostI): Observable<PostI> {
-    return this.afs.doc<PostI>(`post/${id}`).valueChanges();
+    return this.afs.doc<PostI>(`posts/${id}`).valueChanges();
   }
 
   //Borrar un post
