@@ -1,7 +1,8 @@
-.container-about{
-  height: 73vh;
-
+img {
+  max-width: 20rem;
 }
-img{
-  height: 200px;
+
+.img-skill{
+  width: 60%;
+  height: 60%;
 }

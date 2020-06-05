@@ -1,17 +1,20 @@
-a{
-  color: #ffffff;
+a {
   text-decoration: none;
 }
 
-.bg-dark{
-  background-color: rgba(22,26,47,0.5)!important;
+a:hover {
+  color: rgba(229, 85, 40, 0.5)!important;
 }
 
-.activeNavbar{
-  color: rgba(229,85,40,0.5)!important;
-
+.bg-dark {
+  background-color: rgba(22, 26, 47, 0.5)!important;
 }
 
-.material-icons{
+.active {
+  background-color: rgba(229, 85, 40, 0.1)!important;
+  border-radius: 5px;
+}
+
+.material-icons {
   font-size: 1rem;
 }

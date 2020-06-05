@@ -1,14 +1,32 @@
-<div class="container-about m-5">
-  <div class="media">
-    <img src="assets/fotoPerfil.jpg" class="align-self-start mr-3 img-thumbnail" alt="..." />
-    <div class="media-body">
-      <h5 class="mt-0">{{ developer.profession }}</h5>
-      <p>{{ developer.name }} {{ developer.lastName }}</p>
-      <p>{{ developer.extract }}</p>
-      <p>Habilidades</p>
-      <p>
-        <span class="badge badge-secondary">{{ developer.skills }}</span>
-      </p>
+<div class="container">
+  <h5>About Me</h5>
+  <div class="card mb-3">
+    <div class="card-img p-5 text-center">
+      <img src="assets/fotoPerfil.jpg" class="card-img-top" alt="..." />
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ developer.profession }}</h5>
+      <p class="card-text">{{ developer.name }} {{ developer.lastName }}</p>
+      <p class="card-text">{{ developer.extract }}</p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 text-center">
+      <div class="col mb-4 text-center" *ngFor="let skill of developer.skills">
+        <div class="card h-100 text-center m-1">
+          <img
+            [src]="skill.img"
+            class="card-img-top text-center img-skill"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ skill.name }}</h5>
+            <p class="card-text">
+              {{ skill.description }}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+

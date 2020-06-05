@@ -8,40 +8,83 @@ import { CanSuscriptorGuard } from './auth/guards/can-suscriptor.guard';
 
 
 const routes: Routes = [
-  // tslint:disable-next-line: max-line-length
+  // Users
   {
     path: 'suscriptor',
-    loadChildren: () => import('./modules/suscriptor/suscriptor.module').then(m => m.SuscriptorModule),
+    loadChildren: () => import('./modules/suscriptor/suscriptor.module')
+    .then(m => m.SuscriptorModule),
     canActivate: [CanSuscriptorGuard]
   },
   {
     path: 'admin',
-    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
+    loadChildren: () => import('./modules/admin/admin.module')
+    .then(m => m.AdminModule),
     canActivate: [CanAdminGuard]
   },
   {
     path: 'editor',
-    loadChildren: () => import('./modules/editor/editor.module').then(m => m.EditorModule),
+    loadChildren: () => import('./modules/editor/editor.module')
+    .then(m => m.EditorModule),
     canActivate: [CanEditGuard]
   },
-  // tslint:disable-next-line: max-line-length
+  // Auth
   {
     path: 'forgot-password',
-    loadChildren: () => import('./auth/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule)
+    loadChildren: () => import('./auth/forgot-password/forgot-password.module')
+    .then(m => m.ForgotPasswordModule)
   },
-  { path: 'login', loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule) },
-  { path: 'register', loadChildren: () => import('./auth/lregister/lregister.module').then(m => m.LregisterModule) },
-  { path: 'finance', loadChildren: () => import('./modules/finance/finance.module').then(m => m.FinanceModule) },
-  { path: 'portfolio', loadChildren: () => import('./modules/portfolio/portfolio.module').then(m => m.PortfolioModule) },
+  {
+    path: 'login',
+    loadChildren: () => import('./auth/login/login.module')
+    .then(m => m.LoginModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./auth/lregister/lregister.module')
+    .then(m => m.LregisterModule)
+  },
+  {
+    path: 'verification-email',
+    component: SendEmailComponent
+  },
+  // Finance
+  {
+    path: 'finance',
+    loadChildren: () => import('./modules/finance/finance.module')
+    .then(m => m.FinanceModule)
+  },
+  // Portfolio
+  {
+    path: 'portfolio',
+    loadChildren: () => import('./modules/portfolio/portfolio.module')
+    .then(m => m.PortfolioModule)
+  },
+  // Blog
   {
     path: 'blog',
-    loadChildren: () => import('./modules/blog/blog.module').then(m => m.BlogModule)
+    loadChildren: () => import('./modules/blog/blog.module')
+    .then(m => m.BlogModule)
   },
-  { path: 'shopping', loadChildren: () => import('./modules/shopping/shopping.module').then(m => m.ShoppingModule) },
-  { path: 'verification-email', component: SendEmailComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'home', component: HomeComponent },
-  { path: '**', pathMatch: 'full', redirectTo: '/home' },
+  // Shopping
+  {
+    path: 'shopping',
+    loadChildren: () => import('./modules/shopping/shopping.module')
+    .then(m => m.ShoppingModule)
+  },
+  // Shell
+  {
+    path: 'about',
+    component: AboutComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: '/home'
+  },
 ];
 
 @NgModule({

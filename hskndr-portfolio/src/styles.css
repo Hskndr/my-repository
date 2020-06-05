@@ -4,8 +4,14 @@
 
 body {
   background-color: rgb(22, 26, 47);
-  color: gray;
+  color: #fff;
+  font-size: 1rem;
 }
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 
 .orange {
   color: rgba(229, 85, 40, 0.5)!important;
@@ -15,6 +21,10 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
   color: rgba(229, 85, 40, 0.5)!important;
 
+}
+
+.card{
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .building {
@@ -37,6 +47,8 @@ body {
 
 
 /*TOOLBAR*/
+
+/*Material */
 .tool-bar-space {
   /* This fills the remaining space, by using flexbox.
      Every toolbar row uses a flexbox row layout. */
@@ -53,8 +65,7 @@ mat-chip .mat-chip.mat-primary.mat-standart-chip{
 }
 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 
 /*TEST*/
 .bgc-test{
@@ -65,3 +76,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: blue;
 }
 
+.bgc-test-three{
+  background-color: green;
+}
