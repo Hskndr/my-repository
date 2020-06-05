@@ -1,34 +1,37 @@
 <mat-toolbar id="tool-bar-blog" color="primary">
-  <a [routerLink]="['/blog/home-blog']">
-    Hskndr Blog
-  </a>
+  <mat-nav-list>
+    <a [routerLink]="['/blog/home-blog']"> <mat-icon>home</mat-icon>BLOG </a>
+  </mat-nav-list>
 
   <span class="tool-bar-space"></span>
 
+  <mat-nav-list>
+    <a
+      [routerLink]="['/blog/blog-admin/posts']"
+      routerLinkActive="active"
+      *ngIf="authBlogSvc.userData$ | async"
+    >
+      <button mat-button>
+        <mat-icon>admin_panel_settings</mat-icon>Admin
+      </button>
+    </a>
+  </mat-nav-list>
 
-  <a
-    [routerLink]="['/blog/blog-admin']"
-    routerLinkActive="active"
-    *ngIf="authBlogSvc.userData$ | async"
-  >
-    <button mat-button>
-      Admin
-    </button>
-  </a>
 
+  <mat-nav-list>
   <a
     *ngIf="authBlogSvc.userData$ | async; else showLogin"
     (click)="onBlogLogout()"
   >
     <button mat-button>
-      Logout
+     <mat-icon>exit_to_app</mat-icon> Logout
     </button>
   </a>
-
+</mat-nav-list>
   <ng-template #showLogin>
     <a [routerLink]="['/blog/blog-login']" routerLinkActive="active">
       <button mat-button>
-        Login
+       <mat-icon>login</mat-icon> Login
       </button>
     </a>
   </ng-template>

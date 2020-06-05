@@ -1,6 +1,5 @@
-
-<div class="container" *ngIf="post$ | async as post; else loading">
-  <mat-card class="post-card">
+<div class="container row" *ngIf="post$ | async as post; else loading">
+  <!-- <mat-card class="post-card">
     <img matCardImage class="align-center" [src]="post.imagePost" />
     <mat-card-content>
       <mat-card-header>
@@ -13,13 +12,29 @@
         {{ post.contentPost }}
       </p>
     </mat-card-content>
-  </mat-card>
+  </mat-card> -->
+
+  <div class="col-2"></div>
+  <div class="col-8">
+    <div class="card bg-dark">
+      <div class="card-header bg-light mb-1">
+        {{ post.titlePost }}
+      </div>
+      <div class="card-body mb-1">
+        <img [src]="post.imagePost" class="card-img text-center" alt="..." />
+      </div>
+      <div class="card-body bg-light">
+        <h5 class="card-title">TODO: Agregar Fecha de Creación</h5>
+        <p class="card-text">{{ post.contentPost }}</p>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-2"></div>
 </div>
 
 <ng-template #loading>
   <div class="container-spinner">
     <mat-spinner></mat-spinner>
-    <p>Estoy en Detailspost </p>
   </div>
 </ng-template>
-

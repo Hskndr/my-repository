@@ -13,7 +13,7 @@
     p {
       position: absolute;
       width: 100%;
-      background-color: rgba(123, 31, 162, 0.7);
+      background-color: rgba(229, 85, 40, 0.8);
       color: white;
       text-transform: uppercase;
       transition: all 0, 5s ease;
@@ -25,7 +25,7 @@
       height: 150px;
       border: 2px solid white;
       &:hover {
-        border: 2px solid #7b1fa2;
+        border: 2px solid rgba(110, 33, 10, 0.8);
         cursor: pointer;
       }
     }
@@ -51,9 +51,12 @@
   }
 
   input.mat-flat-button {
-    background: #7b1fa2;
+    background: rgba(229, 85, 40, 0.8);
     padding: 0.4rem;
     color: white;
+    &:hover{
+      background-color: rgba(110, 33, 10, 0.8);
+    }
   }
 
   .mat-dialog-actions {

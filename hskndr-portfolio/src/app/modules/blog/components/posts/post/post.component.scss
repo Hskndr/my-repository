@@ -1,0 +1,43 @@
+/* .container {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(3, 20%);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  justify-content: center;
+  a {
+    cursor: pointer;
+    color: blanchedalmond;
+    text-decoration: none;
+  }
+  .post-card {
+    background-color: #fff;
+    color: black;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+
+    img {
+      height: 200px;
+    }
+    p.content {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+ */
+
+
+ a {
+  cursor: pointer;
+  color: blanchedalmond;
+  text-decoration: none;
+}
+
+.show-content{
+  height: 4rem;
+}
+
+

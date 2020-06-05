@@ -3,15 +3,16 @@
   flex-direction: column;
   form {
     margin-bottom: 20px;
-   /*  input[type="file"] {
+    /*  input[type="file"] {
       display: none;
     } */
 
     input.mat-flat-button {
       width: 100%;
-      background: #4e0561;
+      color: #fff;
+      background: rgba(229, 85, 40, 0.8);
       &:hover {
-        background: #3c034b;
+        background: rgba(110, 33, 10, 0.8);
       }
     }
 

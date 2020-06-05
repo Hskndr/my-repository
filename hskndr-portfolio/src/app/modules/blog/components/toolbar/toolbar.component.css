@@ -1,11 +1,4 @@
-a {
-  color: rgba(0, 0, 0, 0.7) !important;
-  font-size: 16px;
+
+.mat-toolbar {
+  background: rgba(229, 85, 40, 0.5);
 }
-
-a:hover {
-  font-size: 14px;
-  text-decoration: none;
-}
-
-

@@ -11,8 +11,10 @@ body {
   color: rgba(229, 85, 40, 0.5)!important;
 }
 
-.card {
+.style-basic-hskndr {
   background-color: rgba(0, 0, 0, 0.3);
+  color: rgba(229, 85, 40, 0.5)!important;
+
 }
 
 .building {
@@ -20,7 +22,11 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 83vh;
+  width: 100%;
 }
+
+/*BLOG*/
+
 
 .container-spinner{
   display: flex;
@@ -29,15 +35,6 @@ body {
   height: 100%;
 }
 
-.sport{
-  background-color: blue !important;
-}
-.life{
-  background-color: orangered !important;
-}
-.style{
-  background-color: red !important;
-}
 
 /*TOOLBAR*/
 .tool-bar-space {
@@ -51,9 +48,20 @@ mat-chip .mat-chip.mat-primary.mat-standart-chip{
   padding: 9px;
 }
 
-mat-toolbar #tool-bar-blog .mat-toolbar .mat-primary .mat-toolbar-single-row {
-  background: orange !important;
+.mat-toolbar {
+  background: rgba(229, 85, 40, 0.5);
 }
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/*TEST*/
+.bgc-test{
+  background-color: orange;
+}
+
+.bgc-test-two{
+  background-color: blue;
+}
+
