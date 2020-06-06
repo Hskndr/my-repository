@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthBlogService } from '../../shared/services/auth-blog.service';
+import { AuthBlogService } from '../../services/auth-blog.service';
 
 @Component({
   selector: 'app-toolbar',

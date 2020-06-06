@@ -7,7 +7,7 @@ import { NewPostModule } from './components/posts/new-post/new-post.module';
 import { BlogComponent } from './blog.component';
 import { NewPostComponent } from './components/posts/new-post/new-post.component';
 import { MaterialModule } from '../../material.module';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContainerAppComponent } from './components/pages/container-app/container-app.component';
 import { ModalComponent } from './shared/components/modal/modal.component';

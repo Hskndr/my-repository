@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PostI } from '../../../shared/post.interface';
-import { PostService } from '../post.service';
+import { PostService } from '../post-services/post.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({

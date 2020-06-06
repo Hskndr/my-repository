@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.interface';
+import { BlogUserI } from 'src/app/modules/blog/shared/user.interface';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,7 @@ import { User } from '../models/user.interface';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-  hskndr: string = "<HSKNDR>"
+  public hskndr = '<HSKNDR>';
 
   //public isLogged = false;
   //public user: any;
@@ -25,18 +26,18 @@ export class NavbarComponent {
 
   ) { }
 
-/*   async ngOnInit() {
+  /*   async ngOnInit() {
 
 
 
-  console.log('Navbar');
-    this.user = await this.authSvc.getCurrentUser();
-    if (this.user) {
-      this.isLogged = true;
-      console.log('user-->', this.user);
+    console.log('Navbar');
+      this.user = await this.authSvc.getCurrentUser();
+      if (this.user) {
+        this.isLogged = true;
+        console.log('user-->', this.user);
+      }
     }
-  }
- */
+   */
   async onLogout() {
     try {
       await this.authSvc.logout();
@@ -46,5 +47,5 @@ export class NavbarComponent {
       console.log(error);
     }
   }
-
 }
+

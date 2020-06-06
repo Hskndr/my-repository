@@ -4,6 +4,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { BlogUserI } from '../../../shared/user.interface';
 import { User } from '../../../../../components/shared/models/user.interface';
 import { FileI } from '../../../shared/file.interface';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-profile',
@@ -35,6 +37,13 @@ export class ProfileComponent implements OnInit {
 
   onSaveUser(user: BlogUserI): void {
     this.authBlogSvc.preSaveUserProfile( user, this.image );
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Your post has been created',
+      showConfirmButton: false,
+      timer: 2200
+    });
   }
 
   private initValuesForm(user: BlogUserI): void {
@@ -50,5 +59,6 @@ export class ProfileComponent implements OnInit {
   handleImage(image: FileI): void {
     this.image = image;
   }
+
 
 }

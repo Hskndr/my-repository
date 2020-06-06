@@ -79,7 +79,13 @@
 
       <li class="nav-item">
         <a class="nav-link">
-          <span class="material-icons">account_circle</span>
+          <img class="imageProfileNavbar"
+          [src]="user.photoURL"
+          width="30"
+          height="30"
+          alt=""
+          loading="lazy"
+        />
           {{ user?.email }}</a
         >
       </li>
@@ -104,3 +110,4 @@
     </ng-template>
   </div>
 </nav>
+

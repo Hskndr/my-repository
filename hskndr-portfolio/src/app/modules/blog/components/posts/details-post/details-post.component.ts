@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PostI } from '../../../shared/post.interface';
 import { ActivatedRoute } from '@angular/router';
-import { PostService } from '../post.service';
+import { PostService } from '../post-services/post.service';
 
 @Component({
   selector: 'app-details-post',

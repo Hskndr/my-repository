@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map, finalize } from 'rxjs/operators';
-import { PostI } from '../../shared/post.interface';
-import { FileI } from '../../shared/file.interface';
+import { PostI } from '../../../shared/post.interface';
+import { FileI } from '../../../shared/file.interface';
 import { AngularFireStorage } from '@angular/fire/storage';
 
 
@@ -54,9 +54,6 @@ export class PostService {
     } else {
       return this.postsCollection.doc(post.id).update(post);
     }
-
-
-
 
   }
 

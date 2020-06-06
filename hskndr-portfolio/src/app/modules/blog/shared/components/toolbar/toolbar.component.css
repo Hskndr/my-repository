@@ -1,0 +1,10 @@
+
+.mat-toolbar {
+  background: rgba(229, 85, 40, 0.5);
+}
+
+.active{
+  background: rgba(229, 85, 40, 0.3);
+  padding: 5px;
+  border: 1px solidƒ rgba(229, 85, 40, 0.6);
+}

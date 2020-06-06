@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, MatSort, MatDialog } from '@angular/material';
-import { PostService } from '../../../components/posts/post.service';
+import { PostService } from '../../../components/posts/post-services/post.service';
 import { PostI } from '../../post.interface';
 
 import Swal from 'sweetalert2';
@@ -27,8 +27,8 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.postSvc
-    .getAllPosts()
-    .subscribe(posts => this.dataSource.data = posts);
+      .getAllPosts()
+      .subscribe(posts => this.dataSource.data = posts);
   }
 
   ngAfterViewInit() {
@@ -43,8 +43,9 @@ export class TableComponent implements OnInit, AfterViewInit {
 
 
   onEditPost(post: PostI) {
-    console.log('Edit post', post);
+    console.log('Edit post0', post);
     this.openDialog(post);
+    console.log('End onEdit3');
 
   }
 
@@ -62,10 +63,8 @@ export class TableComponent implements OnInit, AfterViewInit {
       if (result.value) {
         this.postSvc.deletePostById(post).then(() => {
           Swal.fire('Deleted', 'Your post has been deleted', 'success');
-
         }).catch((error) => {
           Swal.fire('Error', 'There was an error deleting this post!', 'error');
-
         });
       }
     });
@@ -83,10 +82,37 @@ export class TableComponent implements OnInit, AfterViewInit {
         content: post
       }
     };
+    console.log('Dialog middle 1', config.data.message);
+
 
     const dialogRef = this.dialog.open(ModalComponent, config);
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result ${result}`);
+      if (config.data.message === 'Edit Post' && result === true) {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Your post has been edited',
+          showConfirmButton: false,
+          timer: 2200
+        });
+      } else if (config.data.message === 'New Post' && result === true) {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Your post has been created',
+          showConfirmButton: false,
+          timer: 2200
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+        });
+      }
+
+      console.log(`Dialog 4result ${result}`);
     });
+    console.log('end dialog2');
   }
 }
