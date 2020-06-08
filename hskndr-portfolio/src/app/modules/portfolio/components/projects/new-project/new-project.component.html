@@ -1,0 +1,106 @@
+<div class="container mb-3">
+  <a class="text-center" style="cursor: pointer;">
+    <span
+      class="material-icons"
+      *ngIf="addState == false"
+      (click)="addProject($event)"
+      >add_circle_outline</span
+    >
+
+    <span
+      *ngIf="addState == !false"
+      (click)="clearState()"
+      class="material-icons"
+      >close</span
+    >
+  </a>
+
+  <div class="card p-2" *ngIf="addState == true">
+    <label>Add New Project</label>
+
+    <form (ngSubmit)="onSaveProject(newProjectForm)" #newProjectForm="ngForm">
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label for="title">Project Name</label>
+          <input
+            [(ngModel)]="project.title"
+            #title="ngModel"
+            name="title"
+            type="text"
+            class="form-control is-valid"
+            id="title"
+            value="Mark"
+            required
+          />
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="urlRepo">Repositorio</label>
+          <input
+            [(ngModel)]="project.urlRepo"
+            #urlRepo="ngModel"
+            name="urlRepo"
+            type="text"
+            class="form-control is-invalid"
+            id="urlRepo"
+            required
+          />
+          <div class="invalid-feedback">
+            Please provide a valid url.
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="urlProject">Proyecto</label>
+          <input
+            [(ngModel)]="project.urlProject"
+            #urlProject="ngModel"
+            name="urlProject"
+            type="text"
+            class="form-control is-invalid"
+            id="urlProject"
+            required
+          />
+          <div class="invalid-feedback">
+            Please provide a valid url.
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label for="description">Description</label>
+          <textarea
+            [(ngModel)]="project.description"
+            #description="ngModel"
+            name="description"
+            class="form-control is-invalid"
+            id="description"
+            placeholder="Required example textarea"
+            required
+          ></textarea>
+          <div class="invalid-feedback">
+            Please enter a message in the textarea.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row text-center">
+        <div class="col-md-12 mb-3">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile" />
+            <label class="custom-file-label" for="customFile"
+              >Choose file</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Add Project</button>
+    </form>
+  </div>
+</div>

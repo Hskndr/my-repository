@@ -3,13 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { PortfolioRoutingModule } from './portfolio-routing.module';
 import { PortfolioComponent } from './portfolio.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { NewProjectComponent } from './components/projects/new-project/new-project.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [PortfolioComponent],
+  declarations: [PortfolioComponent, ProjectsComponent, NewProjectComponent],
   imports: [
     CommonModule,
-    PortfolioRoutingModule
+    PortfolioRoutingModule,
+    FormsModule,
   ]
 })
 export class PortfolioModule { }
