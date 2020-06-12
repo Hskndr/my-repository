@@ -18,16 +18,16 @@
   </mat-nav-list>
 
   <mat-nav-list>
-    <a
+   <!--  <a
       *ngIf="authBlogSvc.userData$ | async; else showLogin"
       (click)="onBlogLogout()"  routerLinkActive="active"
     >
       <button mat-button><mat-icon>exit_to_app</mat-icon> Logout</button>
-    </a>
+    </a> -->
   </mat-nav-list>
   <ng-template #showLogin>
-    <a [routerLink]="['/blog/blog-login']" routerLinkActive="active">
+   <!--  <a [routerLink]="['/blog/blog-login']" routerLinkActive="active">
       <button mat-button><mat-icon>login</mat-icon> Login</button>
-    </a>
+    </a> -->
   </ng-template>
 </mat-toolbar>

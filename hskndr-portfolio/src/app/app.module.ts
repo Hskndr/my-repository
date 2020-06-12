@@ -46,9 +46,10 @@ import { MaterialModule } from './material.module';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     MaterialModule,
-    //Para el Blog
+    // Para el Blog
     AngularFirestoreModule,
     AngularFireStorageModule,
+    //
 
 
   ],

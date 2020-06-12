@@ -1,0 +1,6 @@
+a {
+  cursor: pointer;
+}
+a:hover{
+  color: rgba(229, 85, 40, 0.5);
+}

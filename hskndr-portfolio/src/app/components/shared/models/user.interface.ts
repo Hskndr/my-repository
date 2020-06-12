@@ -6,6 +6,7 @@ export interface User {
   password?: string;
   photoURL?: string;
   role?: Roles;
+  createdUserAt?: string;
 }
 
 export type Roles = 'SUSCRIPTOR' | 'EDITOR' | 'ADMIN';

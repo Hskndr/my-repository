@@ -12,17 +12,18 @@ export class ProjectsService {
   projects: Observable<ProjectsI[]>;
   projectDoc: AngularFirestoreDocument<ProjectsI>;
 
+
+
   constructor(
     public afsProjects: AngularFirestore,
   ) {
-    //this.projects = afsProjects.collection('projects').valueChanges();
-    this.projectsCollection = afsProjects.collection<ProjectsI>('projects');
+    // this.projects = afsProjects.collection('projects').valueChanges();
+    this.projectsCollection = afsProjects.collection<ProjectsI>('projects', ref => ref.orderBy('date', 'desc'));
     this.projects = this.projectsCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as ProjectsI;
         const id = a.payload.doc.id;
         return { id, ...data };
-
       }))
     );
 

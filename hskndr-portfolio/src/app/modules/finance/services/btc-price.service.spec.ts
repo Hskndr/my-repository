@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GetAllPostsService } from './-get-all-posts.service';
+import { BtcPriceService } from './btc-price.service';
 
-describe('GetAllPostsService', () => {
-  let service: GetAllPostsService;
+describe('BtcPriceService', () => {
+  let service: BtcPriceService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(GetAllPostsService);
+    service = TestBed.inject(BtcPriceService);
   });
 
   it('should be created', () => {

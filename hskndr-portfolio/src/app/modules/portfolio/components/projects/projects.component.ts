@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from '../../services/projects.service';
 import { ProjectsI } from '../../shared/models/project';
+import { Observable } from 'rxjs';
+import { User } from '../../../../components/shared/models/user.interface';
+import { AuthService } from '../../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-projects',
@@ -12,9 +15,12 @@ export class ProjectsComponent implements OnInit {
   // edit
   editState: boolean = false;
   projectToEdit: ProjectsI;
+  // Auth
+  public user$: Observable<User> = this.authSvc.afAuth.user;
 
   constructor(
-    private projectsSvc: ProjectsService
+    private projectsSvc: ProjectsService,
+    private authSvc: AuthService,
   ) { }
 
   ngOnInit(): void {

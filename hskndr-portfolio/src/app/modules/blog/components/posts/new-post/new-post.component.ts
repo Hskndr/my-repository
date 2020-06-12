@@ -9,7 +9,7 @@ import { PostI } from '../../../shared/post.interface';
   styleUrls: ['./new-post.component.scss']
 })
 export class NewPostComponent implements OnInit {
-  private image: any;
+  private image: any = 'assets/HatchfulExport-All/logo.png';
 
   constructor(
     private postSvc: PostService
@@ -32,6 +32,6 @@ export class NewPostComponent implements OnInit {
 
   handleImage(event: any): void {
     this.image = event.target.files[0];
-    console.log('Image', this.image);
+    console.log('Image before save post', this.image);
   }
 }

@@ -1,17 +1,23 @@
-<div
-  class="container-fluid"
-  *ngIf="posts$ | async as posts; else loading"
->
-  <div class="row row-cols-1 row-cols-md-3">
-    <mat-card class="col mb-4 post-card style-basic-hskndr" *ngFor="let post of posts">
-      <app-post [post]="post"></app-post>
-    </mat-card>
-  </div>
-</div>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <div class="container-fluid" *ngIf="posts$ | async as posts; else loading">
+      <div class="row row-cols-1 row-cols-md-3">
+        <mat-card
+          class="col mb-4 post-card style-basic-hskndr"
+          *ngFor="let post of posts"
+        >
+          <app-post [post]="post"></app-post>
+        </mat-card>
+      </div>
+    </div>
 
-<!-- Para cuando esté cargando -->
-<ng-template #loading>
-  <div class="container-spinner">
-    <mat-spinner></mat-spinner>
+    <!-- Para cuando esté cargando -->
+    <ng-template #loading>
+      <div class="container-spinner">
+        <mat-spinner></mat-spinner>
+      </div>
+    </ng-template>
   </div>
-</ng-template>
+  <div class="col-md-1"></div>
+</div>

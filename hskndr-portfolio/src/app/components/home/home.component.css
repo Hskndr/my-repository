@@ -12,3 +12,14 @@
   background: rgba(110, 33, 10, 0.8);
   color: #fff !important;
 }
+
+.card-img-top{
+  min-height: 15rem;
+}
+
+.card-text{
+  height: 7rem;
+  font-size: 0.9rem;
+  overflow: hidden;
+
+}

@@ -1,5 +1,5 @@
 <div class="container mb-3">
-  <a class="text-center" style="cursor: pointer;">
+  <a class="text-center" *ngIf="user$ | async as user">
     <span
       class="material-icons"
       *ngIf="addState == false"
@@ -16,7 +16,7 @@
   </a>
 
   <div class="card p-2" *ngIf="addState == true">
-    <label>Add New Project</label>
+    <h4 class="orange">Add New Project</h4>
 
     <form (ngSubmit)="onSaveProject(newProjectForm)" #newProjectForm="ngForm">
       <div class="form-row">
@@ -27,14 +27,10 @@
             #title="ngModel"
             name="title"
             type="text"
-            class="form-control is-valid"
+            class="form-control"
             id="title"
-            value="Mark"
             required
           />
-          <div class="valid-feedback">
-            Looks good!
-          </div>
         </div>
       </div>
 
@@ -46,13 +42,10 @@
             #urlRepo="ngModel"
             name="urlRepo"
             type="text"
-            class="form-control is-invalid"
+            class="form-control"
             id="urlRepo"
             required
           />
-          <div class="invalid-feedback">
-            Please provide a valid url.
-          </div>
         </div>
 
         <div class="col-md-6 mb-3">
@@ -62,13 +55,10 @@
             #urlProject="ngModel"
             name="urlProject"
             type="text"
-            class="form-control is-invalid"
+            class="form-control"
             id="urlProject"
             required
           />
-          <div class="invalid-feedback">
-            Please provide a valid url.
-          </div>
         </div>
       </div>
       <div class="form-row">
@@ -78,25 +68,46 @@
             [(ngModel)]="project.description"
             #description="ngModel"
             name="description"
-            class="form-control is-invalid"
+            class="form-control"
             id="description"
             placeholder="Required example textarea"
             required
           ></textarea>
-          <div class="invalid-feedback">
-            Please enter a message in the textarea.
-          </div>
         </div>
       </div>
 
       <div class="form-row text-center">
-        <div class="col-md-12 mb-3">
+        <div class="col-md-6 mb-3">
+          <label for="customFile">Image</label>
           <div class="custom-file">
-            <input type="file" class="custom-file-input" id="customFile" />
+            <input
+              type="file"
+              class="custom-file-input"
+              id="customFile"
+
+            />
             <label class="custom-file-label" for="customFile"
               >Choose file</label
             >
           </div>
+        </div>
+
+        <div class="form-group col-md-6 mb-3">
+          <label for="inputState">Skill</label>
+          <select
+            id="skills"
+            class="form-control"
+            [(ngModel)]="project.skills"
+            #skills="ngModel"
+            name="skills"
+          >
+            <option selected>Choose...</option>
+            <option>HTML</option>
+            <option>CSS</option>
+            <option>JAVASCRIPT</option>
+            <option>ANGULAR</option>
+            <option>WORDPRESS</option>
+          </select>
         </div>
       </div>
 

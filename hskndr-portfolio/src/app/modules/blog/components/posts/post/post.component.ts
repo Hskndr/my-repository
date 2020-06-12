@@ -18,7 +18,7 @@ export class PostComponent implements OnInit {
   constructor(private postSvc: PostService) { }
 
   ngOnInit(): void {
-    //this.posts$ = this.postSvc.getAllPosts();
+    // this.posts$ = this.postSvc.getAllPosts();
   }
 
 }

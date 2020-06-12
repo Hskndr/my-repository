@@ -1,147 +1,176 @@
 <app-new-project></app-new-project>
 
 <div class="container">
-  <h3>Projects</h3>
-<a href="https://www.youtube.com/watch?v=m357FemCm28">Time: 14:05</a>
-  <div
-    class="row row-cols-1 row-cols-md-3"
-    *ngIf="projects?.length > 0; else noProjects"
-  >
-    <div class="col mb-4" *ngFor="let project of projects">
-      <div class="card h-100">
-        <div class="card-header">
-          <div class="card-title">
-            {{ project.title }}
-            <a>
-              <span
-                *ngIf="editState == false"
-                (click)="editProject($event, project)"
-                class="material-icons"
-                >mode_edit</span
-              >
-              <span
-                *ngIf="editState && projectToEdit.id == project.id"
-                (click)="clearState()"
-                class="material-icons"
-                >close</span
-              >
-            </a>
-          </div>
+  <h3 class="m-2 orange">Projects</h3>
 
-        </div>
-        <div
-          class="card-body"
-          *ngIf="editState && projectToEdit.id === project.id"
-        >
-          <form (ngSubmit)="onUpdateProject(project)">
-            <div class="form-row">
-              <div class="col-md-12 mb-3">
-                <label for="title">Project Name</label>
-                <input
-                  [(ngModel)]="project.title"
-                  #title="ngModel"
-                  name="title"
-                  type="text"
-                  class="form-control is-valid"
-                  id="title"
-                  value="Mark"
-                  required
-                />
-                <div class="valid-feedback">
-                  Looks good!
-                </div>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="col-md-6 mb-3">
-                <label for="urlRepo">Repositorio</label>
-                <input
-                  [(ngModel)]="project.urlRepo"
-                  #urlRepo="ngModel"
-                  name="urlRepo"
-                  type="text"
-                  class="form-control is-invalid"
-                  id="urlRepo"
-                  required
-                />
-                <div class="invalid-feedback">
-                  Please provide a valid url.
-                </div>
-              </div>
-
-              <div class="col-md-6 mb-3">
-                <label for="urlProject">Proyecto</label>
-                <input
-                  [(ngModel)]="project.urlProject"
-                  #urlProject="ngModel"
-                  name="urlProject"
-                  type="text"
-                  class="form-control is-invalid"
-                  id="urlProject"
-                  required
-                />
-                <div class="invalid-feedback">
-                  Please provide a valid url.
-                </div>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="col-md-12 mb-3">
-                <label for="description">Description</label>
-                <textarea
-                  [(ngModel)]="project.description"
-                  #description="ngModel"
-                  name="description"
-                  class="form-control is-invalid"
-                  id="description"
-                  placeholder="Required example textarea"
-                  required
-                ></textarea>
-                <div class="invalid-feedback">
-                  Please enter a message in the textarea.
-                </div>
-              </div>
-            </div>
-
-            <div class="form-row text-center">
-              <div class="col-md-12 mb-3">
-                <div class="custom-file">
-                  <input
-                    type="file"
-                    class="custom-file-input"
-                    id="customFile"
-                  />
-                  <label class="custom-file-label" for="customFile"
-                    >Choose file</label
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div
+        class="row row-cols-1 row-cols-md-3"
+        *ngIf="projects?.length > 0; else noProjects"
+      >
+        <div class="col mb-4" *ngFor="let project of projects">
+          <div class="card h-100">
+            <div class="card-header">
+              <div class="card-title">
+                {{ project.title }}
+                <a *ngIf="user$ | async as user">
+                  <span
+                    *ngIf="editState == false"
+                    (click)="editProject($event, project)"
+                    class="material-icons"
+                    >mode_edit</span
                   >
-                </div>
+                  <span
+                    *ngIf="editState && projectToEdit.id == project.id"
+                    (click)="clearState()"
+                    class="material-icons"
+                    >close</span
+                  >
+                </a>
               </div>
             </div>
-            <button type="submit" class="btn btn-warning m-1"><span class="material-icons">save</span></button>
-            <button (click)="onDeleteProject($event, project)" class="btn btn-danger m-1"><span class="material-icons">delete_forever</span></button>
-          </form>
+            <div
+              class="card-body"
+              *ngIf="editState && projectToEdit.id === project.id"
+            >
+              <form (ngSubmit)="onUpdateProject(project)">
+                <div class="form-row">
+                  <div class="col-md-12 mb-3">
+                    <label for="title">Project Name</label>
+                    <input
+                      [(ngModel)]="project.title"
+                      #title="ngModel"
+                      name="title"
+                      type="text"
+                      class="form-control"
+                      id="title"
+                      required
+                    />
+                  </div>
+                </div>
 
+                <div class="form-row">
+                  <div class="col-md-12 mb-3">
+                    <label for="urlRepo">Repositorio</label>
+                    <input
+                      [(ngModel)]="project.urlRepo"
+                      #urlRepo="ngModel"
+                      name="urlRepo"
+                      type="text"
+                      class="form-control"
+                      id="urlRepo"
+                      required
+                    />
+                  </div>
 
-        </div>
+                  <div class="col-md-12 mb-3">
+                    <label for="urlProject">Proyecto</label>
+                    <input
+                      [(ngModel)]="project.urlProject"
+                      #urlProject="ngModel"
+                      name="urlProject"
+                      type="text"
+                      class="form-control"
+                      id="urlProject"
+                      required
+                    />
 
-        <img src="#" class="card-img-top" alt="..." />
-        <div class="card-body">
-          <p class="card-text">{{ project.description }}</p>
-        </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-12 mb-3">
+                    <label for="description">Description</label>
+                    <textarea
+                      [(ngModel)]="project.description"
+                      #description="ngModel"
+                      name="description"
+                      class="form-control"
+                      id="description"
+                      placeholder="Required example textarea"
+                      required
+                    ></textarea>
 
-        <div class="card-footer">
-          <p>
-            You can see the
-            <a [href]="project.urlProject" target="_blank">Proyect</a>
+                  </div>
+                </div>
 
-            and the
-            <a [href]="project.urlRepo" target="_blank">Repository</a>.
-          </p>
+                <div class="form-row text-center">
+                  <div class="col-md-12 mb-3">
+                    <div class="custom-file">
+                      <input
+                        type="file"
+                        class="custom-file-input"
+                        id="customFile"
+                      />
+                      <label class="custom-file-label" for="customFile"
+                        >Choose file</label
+                      >
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-12 mb-3">
+                    <label for="inputState">Skill</label>
+                    <select
+                      id="skills"
+                      class="form-control"
+                      [(ngModel)]="project.skills"
+                      #skills="ngModel"
+                      name="skills"
+                    >
+                      <option selected>Choose...</option>
+                      <option>HTML</option>
+                      <option>CSS</option>
+                      <option>JAVASCRIPT</option>
+                      <option>ANGULAR</option>
+                      <option>WORDPRESS</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-warning m-1">
+                  <span class="material-icons">save</span>
+                </button>
+                <button
+                  (click)="onDeleteProject($event, project)"
+                  class="btn btn-danger m-1"
+                >
+                  <span class="material-icons">delete_forever</span>
+                </button>
+              </form>
+            </div>
+
+            <img
+              [src]="project.image"
+              class="img-thumbnail"
+              alt="..."
+            />
+            <div class="card-body">
+              <p class="card-text">{{ project.description }}</p>
+            </div>
+            <div class="card-footer">
+              <span
+                class="badge badge-light m-1 p-2"
+                *ngFor="let skill of project.skills"
+                >{{ skill | uppercase }}</span
+              >
+            </div>
+            <div class="card-footer">
+              <p>
+                You can see the
+                <a [href]="project.urlProject" target="_blank">Proyect</a>
+
+                and the
+                <a [href]="project.urlRepo" target="_blank">Repository</a>.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <div class="col-md-1"></div>
   </div>
+
   <ng-template #noProjects>
     <hr />
     <h3 class="text-center">There are not Projects</h3>

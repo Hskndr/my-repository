@@ -3,87 +3,46 @@
   <p class="lead">Designing and Developing as a child</p>
   <hr class="my-4" />
   <p>By Hiskander Aguillón</p>
-  <a class="btn btn-outline-warning btn-lg" [routerLink]="['/blog/home-blog']" role="button"
+  <a
+    class="btn btn-outline-warning btn-lg"
+    [routerLink]="['/blog/home-blog']"
+    role="button"
     >Take a look to my Blog</a
   >
 </div>
 
 <h2 class="text-center">PROYECTS</h2>
-<div class="card-columns">
-  <div class="card">
-    <img src="assets/comicApp2.png" class="card-img-top" alt="..." />
-    <div class="card-body">
-      <div class="row">
-        <span class="material-icons">
-          code
-        </span>
-        <h5 class="card-title ml-1">Comic App</h5>
-      </div>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="card-columns">
+      <div class="card text-center" *ngFor="let project of projects">
+        <img [src]="project.image" class="img-thumbnail m-3" alt="..." />
 
-      <p class="card-text">
-        Curso Udemy
-      </p>
-      <ul>
-        <li>Angular</li>
-        <li>
-          <a href="#">Ver Aplicación</a>
-        </li>
-        <li>
-          <a href="#"> Ver código github</a>
-        </li>
-      </ul>
+        <div class="card-body">
+          <div class="row">
+            <span class="material-icons">
+              code
+            </span>
+            <h5 class="card-title ml-1">{{ project.title }}</h5>
+          </div>
+
+          <p class="card-text">
+            {{ project.description }}
+          </p>
+        </div>
+
+        <div class="card-footer">
+          <a
+            class="btn btn-secondary stretched-link"
+            [href]="project.urlProject"
+            target="_blank"
+            >GO</a
+          >
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="card">
-    <img src="assets/spotiApp1.png" class="card-img-top" alt="..." />
-    <div class="card-body">
-      <div class="row">
-        <span class="material-icons">
-          code
-        </span>
-        <h5 class="card-title ml-1">SpotiApp</h5>
-      </div>
-
-      <p class="card-text">
-        Curso de Udemy
-      </p>
-      <ul>
-        <li>Angular</li>
-        <li>
-          <a href="#">Ver Aplicación</a>
-        </li>
-        <li>
-          <a href="#"> Ver código github</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="assets/spotiApp1.png" class="card-img-top" alt="..." />
-    <div class="card-body">
-      <div class="row">
-        <span class="material-icons">
-          code
-        </span>
-        <h5 class="card-title ml-1">SpotiApp</h5>
-      </div>
-
-      <p class="card-text">
-        Curso de Udemy
-      </p>
-      <ul>
-        <li>Angular</li>
-        <li>
-          <a href="#">Ver Aplicación</a>
-        </li>
-        <li>
-          <a href="#"> Ver código github</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <div class="col-md-2"></div>
 </div>
-
 <span class="clear-fix"></span>
