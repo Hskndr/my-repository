@@ -5,6 +5,7 @@ export interface ProjectsI {
   urlProject?: string;
   description?: string;
   image?: string;
+  fileRefImage?: string;
   date?: any;
   skills?: string;
 }

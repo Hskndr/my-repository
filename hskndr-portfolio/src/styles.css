@@ -2,10 +2,10 @@
 
 /*General*/
 
-body {
+body, .main-card {
   background-color: rgb(22, 26, 47);
   color: #fff;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 
@@ -25,6 +25,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .card{
   background: rgba(0, 0, 0, 0.2);
+  color: rgba(229, 85, 40, 0.5)!important;
 }
 
 .building {

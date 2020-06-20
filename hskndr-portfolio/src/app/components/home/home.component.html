@@ -1,48 +1,30 @@
-<div class="jumbotron mt-2">
-  <h4 class="display-4 orange">HSKNDR</h4>
-  <p class="lead">Designing and Developing as a child</p>
-  <hr class="my-4" />
-  <p>By Hiskander Aguillón</p>
-  <a
-    class="btn btn-outline-warning btn-lg"
-    [routerLink]="['/blog/home-blog']"
-    role="button"
-    >Take a look to my Blog</a
-  >
-</div>
+<span class="clear-fix"></span>
 
-<h2 class="text-center">PROYECTS</h2>
-<div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8">
-    <div class="card-columns">
-      <div class="card text-center" *ngFor="let project of projects">
-        <img [src]="project.image" class="img-thumbnail m-3" alt="..." />
-
-        <div class="card-body">
-          <div class="row">
-            <span class="material-icons">
-              code
-            </span>
-            <h5 class="card-title ml-1">{{ project.title }}</h5>
-          </div>
-
-          <p class="card-text">
-            {{ project.description }}
-          </p>
-        </div>
-
-        <div class="card-footer">
-          <a
-            class="btn btn-secondary stretched-link"
-            [href]="project.urlProject"
-            target="_blank"
-            >GO</a
-          >
-        </div>
-      </div>
-    </div>
+<mat-card class="card">
+  <div class="jumbotron mt-2">
+    <h4 class="display-4 orange">HSKNDR</h4>
+    <p class="lead">Designing and Developing</p>
+    <hr class="my-4" />
+    <p>By Hiskander Aguillón</p>
+    <button class="btn btn-outline-warning btn-lg" [routerLink]="['/blog/home-blog']" role="button">Take a look to my
+      Blog</button>
   </div>
-  <div class="col-md-2"></div>
-</div>
+</mat-card>
+
+<mat-card class="card">
+
+  <button class="btn btn-outline-warning btn-lg" [routerLink]="['/portfolio']" role="button">
+    LAST PROYECT
+  </button>
+</mat-card>
+
+<mat-card class="card">
+
+  <button class="btn btn-outline-warning btn-lg" [routerLink]="['/blog/home-blog']" role="button">
+    LAST POST
+  </button>
+</mat-card>
+<!-- <mat-card class="card">PRECIOS DE LAS BILLETERAS</mat-card>
+<mat-card class="card">ULTIMOS SERVICIOS VENDIDOS</mat-card>
+ --><span class="clear-fix"></span>
 <span class="clear-fix"></span>

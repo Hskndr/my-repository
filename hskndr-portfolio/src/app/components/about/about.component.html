@@ -1,32 +1,24 @@
-<div class="container">
-  <h5>About Me</h5>
-  <div class="card mb-3">
-    <div class="card-img p-5 text-center">
-      <img src="assets/fotoPerfil.jpg" class="card-img-top" alt="..." />
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">{{ developer.profession }}</h5>
-      <p class="card-text">{{ developer.name }} {{ developer.lastName }}</p>
-      <p class="card-text">{{ developer.extract }}</p>
-    </div>
+<mat-card class="card">
 
-    <div class="row row-cols-1 row-cols-md-3 text-center">
-      <div class="col mb-4 text-center" *ngFor="let skill of developer.skills">
-        <div class="card h-100 text-center m-1">
-          <img
-            [src]="skill.img"
-            class="card-img-top text-center img-skill"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">{{ skill.name }}</h5>
-            <p class="card-text">
-              {{ skill.description }}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
+  <mat-card class="example-card ">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{developer.name }} {{ developer.lastName }}</mat-card-title>
+      <mat-card-subtitle>About Me</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="assets/fotoPerfil.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <mat-card-title>{{ developer.profession }}</mat-card-title>
+      <p>
+        {{developer.extract }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions *ngFor="let skill of developer.skills">
+      <img mat-card-avatar class="example-header-image" [src]="skill.img" >
+      <button mat-button>{{ skill.name }}</button>
+      <p>{{ skill.description }}</p>
+    </mat-card-actions>
+  </mat-card>
+
+</mat-card>

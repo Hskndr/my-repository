@@ -13,7 +13,7 @@ import { AuthService } from '../../../../auth/services/auth.service';
 export class ProjectsComponent implements OnInit {
   public projects: ProjectsI[];
   // edit
-  editState: boolean = false;
+  editState = false;
   projectToEdit: ProjectsI;
   // Auth
   public user$: Observable<User> = this.authSvc.afAuth.user;

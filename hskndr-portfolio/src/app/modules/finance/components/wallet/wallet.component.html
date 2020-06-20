@@ -1,0 +1,47 @@
+<p>wallet works!</p>
+<div class="container-fluid">
+  <app-new-wallet></app-new-wallet>
+
+  <app-edit-wallet *ngIf="editWalletState === true" [wallet]="walletToEdit"
+  (propagar)="procesaPropagar($event)"
+  ></app-edit-wallet>
+
+  <div *ngIf="walletsComp?.length > 0; else withOutWallet">
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Nº Operation</th>
+          <th scope="col">Date</th>
+          <th scope="col">Hour</th>
+          <th scope="col">Cripto Name</th>
+          <th scope="col">Balance</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody *ngFor="let wallet of walletsComp">
+        <tr>
+          <th scope="row">{{ wallet.id}}</th>
+          <td>{{ wallet.date | date }}</td>
+          <td>{{ wallet.hour | date: "hh:mm:ss" }}</td>
+          <td>{{ wallet.criptoName | uppercase }}</td>
+          <td>{{ wallet.balanceCripto }}</td>
+          <td style="display: flex;">
+            <button class="btn btn-warning col" (click)="fnEditWallet($event, wallet)">
+              o
+            </button>
+            <button class="btn btn-danger col" (click)="onDeleteWallet(wallet)">
+              x
+            </button>
+          </td>
+        </tr>
+
+
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #withOutWallet>
+    <h3>Wallets is Empty</h3>
+  </ng-template>
+</div>

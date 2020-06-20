@@ -19,7 +19,7 @@ export class DetailsPostComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    //Esto recupera el id del post
+    // Esto recupera el id del post
     const idPost = this.route.snapshot.params.id;
     this.post$ = this.postSvc.getOnePost(idPost);
   }

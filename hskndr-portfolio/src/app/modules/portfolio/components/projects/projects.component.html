@@ -1,96 +1,159 @@
-<app-new-project></app-new-project>
+<mat-card class="card" style="text-align: center;">
+  <app-new-project></app-new-project>
+</mat-card>
 
-<div class="container">
-  <h3 class="m-2 orange">Projects</h3>
+
+<h3 class="m-2 orange" style="text-align: center;margin: 1rem;">Projects</h3>
+
+
+<mat-grid-list cols="3" rowHeight="2:3"  *ngIf="projects?.length > 0; else noProjects">
+
+  <mat-grid-tile *ngFor="let project of projects">
+    <mat-card class="card">
+      <mat-card class="example-card card" >
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ project.title }}</mat-card-title>
+          <a *ngIf="user$ | async as user">
+            <span *ngIf="editState == false" (click)="editProject($event, project)"
+              class="material-icons">mode_edit</span>
+            <mat-icon *ngIf="editState && projectToEdit.id == project.id" (click)="clearState()">close</mat-icon>
+          </a>
+        </mat-card-header>
+
+        <mat-card class="example-container card over-absolute" *ngIf="editState && projectToEdit.id === project.id">
+          <form (ngSubmit)="onUpdateProject(project)" class="card">
+            <mat-form-field appearance="fill" class="card">
+              <mat-label class="orange">Input</mat-label>
+              <input matInput [(ngModel)]="project.title" #title="ngModel" name="title" type="text" id="title" required>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field apperance="fill" class="card">
+              <mat-label class="orange">Repo</mat-label>
+              <input matInput [(ngModel)]="project.urlRepo" #urlRepo="ngModel" name="urlRepo" type="text" id="urlRepo"
+                required>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field apperance="fill" class="card">
+              <mat-label class="orange">Project</mat-label>
+              <input matInput [(ngModel)]="project.urlProject" #urlProject="ngModel" name="urlProject" type="text"
+                id="urlProject" required>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field appearance="fill" class="card">
+              <mat-label class="orange">Select</mat-label>
+              <mat-select id="skills" [(ngModel)]="project.skills" #skills="ngModel" name="skills">
+                <mat-option value="option">Option</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <br>
+            <mat-form-field appearance="fill" class="card">
+              <mat-label class="orange">Textarea</mat-label>
+              <textarea matInput [(ngModel)]="project.description" #description="ngModel" name="description"
+                id="description" placeholder="Required example textarea" required></textarea>
+            </mat-form-field>
+            <mat-card-footer class="card">
+              <button mat-button type="submit">
+                <mat-icon>save</mat-icon>
+              </button>
+              <button mat-button (click)="onDeleteProject($event, project)">
+                <mat-icon>delete_forever</mat-icon>
+              </button>
+            </mat-card-footer>
+          </form>
+        </mat-card>
+
+
+
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content >
+          <p>
+            {{ project.description }}
+          </p>
+        </mat-card-content>
+        <mat-card-footer >
+          <p>
+            You can see the
+            <a [href]="project.urlProject" target="_blank">Proyect</a>
+
+            and the
+            <a [href]="project.urlRepo" target="_blank">Repository</a>.
+          </p>
+        </mat-card-footer>
+        <mat-card-actions >
+          <button mat-button *ngFor="let skill of project.skills">
+            {{ skill | uppercase }}
+          </button>
+
+        </mat-card-actions>
+      </mat-card>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+
+
+
+<ng-template #noProjects>
+  <hr />
+  <h3 class="text-center">There are not Projects</h3>
+  <hr />
+</ng-template>
+
+
+<!-- <div class="container">
 
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-      <div
-        class="row row-cols-1 row-cols-md-3"
-        *ngIf="projects?.length > 0; else noProjects"
-      >
+      <div class="row row-cols-1 row-cols-md-3" *ngIf="projects?.length > 0; else noProjects">
         <div class="col mb-4" *ngFor="let project of projects">
           <div class="card h-100">
             <div class="card-header">
               <div class="card-title">
                 {{ project.title }}
                 <a *ngIf="user$ | async as user">
-                  <span
-                    *ngIf="editState == false"
-                    (click)="editProject($event, project)"
-                    class="material-icons"
-                    >mode_edit</span
-                  >
-                  <span
-                    *ngIf="editState && projectToEdit.id == project.id"
-                    (click)="clearState()"
-                    class="material-icons"
-                    >close</span
-                  >
+                  <span *ngIf="editState == false" (click)="editProject($event, project)"
+                    class="material-icons">mode_edit</span>
+                  <span *ngIf="editState && projectToEdit.id == project.id" (click)="clearState()"
+                    class="material-icons">close</span>
                 </a>
               </div>
             </div>
-            <div
-              class="card-body"
-              *ngIf="editState && projectToEdit.id === project.id"
-            >
+
+            <div class="card-body" *ngIf="editState && projectToEdit.id === project.id">
               <form (ngSubmit)="onUpdateProject(project)">
                 <div class="form-row">
                   <div class="col-md-12 mb-3">
                     <label for="title">Project Name</label>
-                    <input
-                      [(ngModel)]="project.title"
-                      #title="ngModel"
-                      name="title"
-                      type="text"
-                      class="form-control"
-                      id="title"
-                      required
-                    />
+                    <input [(ngModel)]="project.title" #title="ngModel" name="title" type="text" class="form-control"
+                      id="title" required />
                   </div>
                 </div>
 
                 <div class="form-row">
                   <div class="col-md-12 mb-3">
                     <label for="urlRepo">Repositorio</label>
-                    <input
-                      [(ngModel)]="project.urlRepo"
-                      #urlRepo="ngModel"
-                      name="urlRepo"
-                      type="text"
-                      class="form-control"
-                      id="urlRepo"
-                      required
-                    />
+                    <input [(ngModel)]="project.urlRepo" #urlRepo="ngModel" name="urlRepo" type="text"
+                      class="form-control" id="urlRepo" required />
                   </div>
 
                   <div class="col-md-12 mb-3">
                     <label for="urlProject">Proyecto</label>
-                    <input
-                      [(ngModel)]="project.urlProject"
-                      #urlProject="ngModel"
-                      name="urlProject"
-                      type="text"
-                      class="form-control"
-                      id="urlProject"
-                      required
-                    />
+                    <input [(ngModel)]="project.urlProject" #urlProject="ngModel" name="urlProject" type="text"
+                      class="form-control" id="urlProject" required />
 
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="col-md-12 mb-3">
                     <label for="description">Description</label>
-                    <textarea
-                      [(ngModel)]="project.description"
-                      #description="ngModel"
-                      name="description"
-                      class="form-control"
-                      id="description"
-                      placeholder="Required example textarea"
-                      required
-                    ></textarea>
+                    <textarea [(ngModel)]="project.description" #description="ngModel" name="description"
+                      class="form-control" id="description" placeholder="Required example textarea" required></textarea>
 
                   </div>
                 </div>
@@ -98,26 +161,15 @@
                 <div class="form-row text-center">
                   <div class="col-md-12 mb-3">
                     <div class="custom-file">
-                      <input
-                        type="file"
-                        class="custom-file-input"
-                        id="customFile"
-                      />
-                      <label class="custom-file-label" for="customFile"
-                        >Choose file</label
-                      >
+                      <input type="file" class="custom-file-input" id="customFile" />
+                      <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                   </div>
 
                   <div class="form-group col-md-12 mb-3">
                     <label for="inputState">Skill</label>
-                    <select
-                      id="skills"
-                      class="form-control"
-                      [(ngModel)]="project.skills"
-                      #skills="ngModel"
-                      name="skills"
-                    >
+                    <select id="skills" class="form-control" [(ngModel)]="project.skills" #skills="ngModel"
+                      name="skills">
                       <option selected>Choose...</option>
                       <option>HTML</option>
                       <option>CSS</option>
@@ -131,29 +183,19 @@
                 <button type="submit" class="btn btn-warning m-1">
                   <span class="material-icons">save</span>
                 </button>
-                <button
-                  (click)="onDeleteProject($event, project)"
-                  class="btn btn-danger m-1"
-                >
+                <button (click)="onDeleteProject($event, project)" class="btn btn-danger m-1">
                   <span class="material-icons">delete_forever</span>
                 </button>
               </form>
             </div>
 
-            <img
-              [src]="project.image"
-              class="img-thumbnail"
-              alt="..."
-            />
+            <img [src]="project.image" class="img-thumbnail" alt="..." />
             <div class="card-body">
               <p class="card-text">{{ project.description }}</p>
             </div>
             <div class="card-footer">
-              <span
-                class="badge badge-light m-1 p-2"
-                *ngFor="let skill of project.skills"
-                >{{ skill | uppercase }}</span
-              >
+              <span class="badge badge-light m-1 p-2"
+                *ngFor="let skill of project.skills">{{ skill | uppercase }}</span>
             </div>
             <div class="card-footer">
               <p>
@@ -166,14 +208,9 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
     <div class="col-md-1"></div>
   </div>
-
-  <ng-template #noProjects>
-    <hr />
-    <h3 class="text-center">There are not Projects</h3>
-    <hr />
-  </ng-template>
-</div>
+</div> -->

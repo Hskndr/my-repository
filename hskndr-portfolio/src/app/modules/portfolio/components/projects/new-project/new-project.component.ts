@@ -23,9 +23,10 @@ export class NewProjectComponent implements OnInit {
     skills: '',
   };
 
-  addState: boolean = false;
+  addState = false;
   // Auth
   public user$: Observable<User> = this.authSvc.afAuth.user;
+
 
   constructor(
     private projectSvc: ProjectsService,

@@ -23,7 +23,7 @@ export class PostService {
     this.postsCollection = afs.collection<PostI>('posts');
   }
 
-  //Métodos
+  // Métodos
   public getAllPosts(): Observable<PostI[]> {
     return this.afs.
       collection('posts').
@@ -37,17 +37,17 @@ export class PostService {
         ));
   }
 
-  //Obtener un Post
+  // Obtener un Post
   public getOnePost(id: PostI): Observable<PostI> {
     return this.afs.doc<PostI>(`posts/${id}`).valueChanges();
   }
 
-  //Borrar un post
+  // Borrar un post
   public deletePostById(post: PostI) {
     return this.postsCollection.doc(post.id).delete();
   }
 
-  //Editar un post
+  // Editar un post
   public editPostById(post: PostI, newImage?: FileI) {
     if (newImage) {
       this.uploadImage(post, newImage);
@@ -57,12 +57,12 @@ export class PostService {
 
   }
 
-  //PreCargar imagen
+  // PreCargar imagen
   public preAddAndUpdatePost(post: PostI, image: FileI): void {
     this.uploadImage(post, image);
   }
 
-  //Para crear y editar el post
+  // Para crear y editar el post
   private savePost(post: PostI) {
     const postObj = {
       titlePost: post.titlePost,
@@ -71,8 +71,8 @@ export class PostService {
       fileRef: this.filePath,
       tagsPost: post.tagsPost,
     };
-    //TODO editpost
-    //Verificar si tiene id
+    // TODO: editpost
+    // Verificar si tiene id
     if (post.id) {
       return this.postsCollection.doc(post.id).update(postObj);
     } else {
@@ -80,7 +80,7 @@ export class PostService {
     }
   }
 
-  //Cargar imagen
+  // Cargar imagen
   private uploadImage(post: PostI, image: FileI) {
     this.filePath = `images/${image.name}`;
     const fileRef = this.storage.ref(this.filePath);
@@ -91,7 +91,7 @@ export class PostService {
           this.downloadURL = urlImage;
           console.log('URL_IMAGE', urlImage);
           console.log('POST', post);
-          //CALL ADD
+          // CALL ADD
           this.savePost(post);
         });
       })

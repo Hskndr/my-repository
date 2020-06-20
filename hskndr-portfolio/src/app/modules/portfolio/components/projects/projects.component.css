@@ -1,9 +1,37 @@
-a {
+a, .material-icons, .mat-icon, mat-icon {
   cursor: pointer;
+  color: rgb(229, 85, 40);
 }
-a:hover{
+
+a:hover, .material-icons:hover {
   color: rgba(229, 85, 40, 0.5);
 }
-.material-icons{
+
+.material-icons {
   color: white;
+}
+
+.example-card {
+  width: 350px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+button {
+  color: rgba(229, 85, 40, 0.5);
+}
+
+mat-card-content {
+  height: 8rem;
+  overflow: scroll;
+  cursor: pointer;
+}
+
+.over-absolute{
+  position: absolute;
+  background: rgb(22, 26, 47);
+  width: 100%;
 }

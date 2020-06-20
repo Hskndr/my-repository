@@ -1,22 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" routerLink="home">
-    <img
-      src="assets/HatchfulExport-All/logo.png"
-      width="30"
-      height="30"
-      alt=""
-      loading="lazy"
-    />
+    <img src="assets/HatchfulExport-All/logo.png" width="30" height="30" alt="" loading="lazy" />
   </a>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarNav"
-    aria-controls="navbarNav"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -66,12 +53,7 @@
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="user$ | async as user; else login">
-      <li
-        class="nav-item"
-        routerLinkActive="active"
-        *ngIf="user"
-        (click)="onLogout()"
-      >
+      <li class="nav-item" routerLinkActive="active" *ngIf="user" (click)="onLogout()">
         <a href="#" class="nav-link">
           <span class="material-icons">exit_to_app</span> Logout
         </a>
@@ -79,15 +61,8 @@
 
       <li class="nav-item">
         <a class="nav-link">
-          <img class="imageProfileNavbar"
-          [src]="user.photoURL"
-          width="30"
-          height="30"
-          alt=""
-          loading="lazy"
-        />
-          {{ user?.email }}</a
-        >
+          <img class="imageProfileNavbar" [src]="user.photoURL" width="30" height="30" alt="" loading="lazy" />
+          {{ user?.email }}</a>
       </li>
     </ul>
 
@@ -109,5 +84,98 @@
       </ul>
     </ng-template>
   </div>
-</nav>
+</nav> -->
 
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-button>
+      <a routerLink="home">
+        <img src="assets/HatchfulExport-All/logo.png" width="70" height="70" />
+      </a>
+    </button>
+
+    <button mat-button routerLinkActive="active">
+      <a [routerLink]="['home']">
+        <span class="material-icons">
+          home
+        </span>
+        Home
+      </a>
+    </button>
+
+    <button mat-button routerspannkActive="active">
+      <a [routerLink]="['/portfolio']">
+        <span class="material-icons"> folder_open </span>Portfolio
+      </a>
+    </button>
+
+    <button mat-button routerLinkActive="active">
+      <a [routerLink]="['blog/home-blog']">
+        <span class="material-icons">
+          receipt
+        </span>
+        Blog
+      </a>
+    </button>
+<!-- Agregar al Finalizar -->
+    <!-- <button mat-button routerLinkActive="active">
+      <a [routerLink]="['shopping']">
+        <span class="material-icons">
+          local_grocery_store
+        </span>
+        Shopping
+      </a>
+    </button>
+
+    <button mat-button routerLinkActive="active">
+      <a [routerLink]="['finance']">
+        <span class="material-icons">
+          timeline
+        </span>
+        Finance
+      </a>
+    </button> -->
+
+    <span class="tool-bar-space"></span>
+
+    <span *ngIf="user$ | async as user; else login">
+
+      <img class="imageProfileNavbar" [src]="user.photoURL" width="45" height="45" alt="" loading="lazy" />
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <span>{{ user?.email }}</span>
+        </button>
+        <button mat-menu-item routerLinkActive="active" *ngIf="user" (click)="onLogout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </button>
+
+      </mat-menu>
+
+    </span>
+
+
+    <ng-template #login>
+      <button mat-button routerLinkActive="active" >
+        <a [routerLink]="['register']">
+          <span class="material-icons">add_circle_outline</span>
+          Register
+        </a>
+      </button>
+
+      <button mat-button >
+        <a [routerLink]="['login']">
+          <span class="material-icons">login</span>
+          Login
+        </a>
+      </button>
+    </ng-template>
+
+
+
+
+  </mat-toolbar-row>
+</mat-toolbar>

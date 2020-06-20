@@ -13,7 +13,10 @@ import {
   MatProgressSpinnerModule,
   MatDividerModule,
   MatChipsModule,
-  MatDialogModule
+  MatDialogModule,
+  MatSliderModule,
+  MatProgressBarModule,
+  MatExpansionModule
 } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
@@ -52,6 +55,9 @@ const matModules = [
   MatChipsModule,
   MatSortModule,
   MatDialogModule,
+  MatSliderModule,
+  MatProgressBarModule,
+  MatExpansionModule,
 ];
 @NgModule({
   declarations: [],

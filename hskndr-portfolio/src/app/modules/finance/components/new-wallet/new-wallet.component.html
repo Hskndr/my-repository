@@ -1,0 +1,31 @@
+<p>new-wallet works!</p>
+<div class="container">
+  <form #newWalletForm="ngForm" (ngSubmit)="onAddNewWallet(newWalletForm)">
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Cripto Name</th>
+          <th scope="col">Balance</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input [(ngModel)]="newWalletObj.criptoName" #criptoName="ngModel" type="text" class="form-control" name="criptoName" id="criptoName" required/>
+          </td>
+          <td>
+            <input [(ngModel)]="newWalletObj.balanceCripto" #balanceCripto="ngModel" type="text" class="form-control" name="balanceCripto" id="balanceCripto" required
+            />
+          </td>
+
+          <td>
+            <button class="btn btn-success" type="submit">
+              +
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

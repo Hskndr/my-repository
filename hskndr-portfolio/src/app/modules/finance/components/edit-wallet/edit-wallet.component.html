@@ -1,0 +1,41 @@
+<p>edit-wallet works!</p>
+<p>
+  <input type="text" [(ngModel)]="mensaje">
+
+</p>
+<div class="container-fluid border">
+  <form (ngSubmit)="onUpdateWallet(wallet, $event)">
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Hour</th>
+          <th scope="col">Cripto Name</th>
+          <th scope="col">Balance</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <td>
+          <input [(ngModel)]="wallet.date" #date="ngModel" name="date" type="text" class="form-control" id="date"
+            required />
+        </td>
+        <td>
+          <input [(ngModel)]="wallet.hour" #hour="ngModel" name="hour" type="text" class="form-control" id="hour"
+            required />
+        </td>
+        <td>
+          <input [(ngModel)]="wallet.criptoName" #criptoName="ngModel" name="criptoName" type="text"
+            class="form-control" id="criptoName" required />
+        </td>
+        <td>
+          <input [(ngModel)]="wallet.balanceCripto" #balanceCripto="ngModel" name="balanceCripto" type="text"
+            class="form-control" id="balanceCripto" required />
+        </td>
+        <td>
+          <button class="btn btn-warning" type="submit" (click)="onPropagar()"> Edit</button>
+        </td>
+      </tbody>
+    </table>
+  </form>
+</div>

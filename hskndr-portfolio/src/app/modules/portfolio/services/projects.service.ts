@@ -12,8 +12,6 @@ export class ProjectsService {
   projects: Observable<ProjectsI[]>;
   projectDoc: AngularFirestoreDocument<ProjectsI>;
 
-
-
   constructor(
     public afsProjects: AngularFirestore,
   ) {
@@ -42,6 +40,7 @@ export class ProjectsService {
     this.projectDoc = this.afsProjects.doc(`projects/${project.id}`);
     this.projectDoc.delete();
   }
+
   updateProject(project: ProjectsI) {
     this.projectDoc = this.afsProjects.doc(`projects/${project.id}`);
     this.projectDoc.update(project);

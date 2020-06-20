@@ -5,6 +5,6 @@ export interface PostI {
   imagePost: any;
   tagsPost: string;
   fileRef?: string;
-  createdAt?: string;
+  createdAt?: any;
 
 }

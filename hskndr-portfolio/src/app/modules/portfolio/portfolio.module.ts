@@ -6,6 +6,7 @@ import { PortfolioComponent } from './portfolio.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { NewProjectComponent } from './components/projects/new-project/new-project.component';
 import { FormsModule } from '@angular/forms';
+import { MaterialModule } from '../../material.module';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     PortfolioRoutingModule,
     FormsModule,
+    MaterialModule
   ]
 })
 export class PortfolioModule { }

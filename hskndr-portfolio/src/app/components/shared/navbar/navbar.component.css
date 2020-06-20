@@ -1,6 +1,7 @@
 a {
   text-decoration: none;
   cursor: pointer;
+  color: #fff;
 }
 
 a:hover {
@@ -20,6 +21,12 @@ a:hover {
   font-size: 1rem;
 }
 
-.imageProfileNavbar{
+.imageProfileNavbar {
   border-radius: 50px;
 }
+
+.mat-toolbar {
+  background: rgb(22, 26, 47);
+  border-bottom: 1px solid rgba(19, 24, 48, 0.5);
+}
+
