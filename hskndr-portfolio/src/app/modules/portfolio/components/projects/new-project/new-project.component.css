@@ -1,6 +1,20 @@
+div{
+  text-align: center;
+  margin-bottom: 3em;
+}
+
 a {
   cursor: pointer;
 }
 a:hover{
   color: rgba(229, 85, 40, 0.5);
+}
+
+mat-card{
+  width: 26em;
+  margin: 1em auto;
+}
+
+mat-label{
+  color: #fff;
 }

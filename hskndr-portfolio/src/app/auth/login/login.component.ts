@@ -10,7 +10,9 @@ import { User } from 'src/app/components/shared/models/user.interface';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  //Método
+  // Style
+  hide = true;
+  // Método
   loginForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),

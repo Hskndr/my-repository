@@ -1,3 +1,13 @@
+/* Background color */
+
+.mat-toolbar {
+  background: rgb(22, 26, 47);
+}
+
+.nav-img {
+  width: 3em;
+}
+
 a {
   text-decoration: none;
   cursor: pointer;
@@ -8,9 +18,7 @@ a:hover {
   color: rgba(229, 85, 40, 0.5)!important;
 }
 
-.bg-dark {
-  background-color: rgba(22, 26, 47, 0.5)!important;
-}
+/* Active Router */
 
 .active {
   background-color: rgba(229, 85, 40, 0.1)!important;
@@ -18,15 +26,15 @@ a:hover {
 }
 
 .material-icons {
-  font-size: 1rem;
+  font-size: 1em;
+}
+
+/* user-info */
+
+.user-info {
+
 }
 
 .imageProfileNavbar {
   border-radius: 50px;
 }
-
-.mat-toolbar {
-  background: rgb(22, 26, 47);
-  border-bottom: 1px solid rgba(19, 24, 48, 0.5);
-}
-

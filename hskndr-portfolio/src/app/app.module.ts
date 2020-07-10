@@ -24,6 +24,7 @@ import { CanEditGuard } from './auth/guards/can-edit.guard';
 import { CanSuscriptorGuard } from './auth/guards/can-suscriptor.guard';
 import { CanAdminGuard } from './auth/guards/can-admin.guard';
 import { MaterialModule } from './material.module';
+import { TestComponent } from './components/test/test.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { MaterialModule } from './material.module';
     FooterComponent,
     AboutComponent,
     SendEmailComponent,
+    TestComponent,
 
 
   ],

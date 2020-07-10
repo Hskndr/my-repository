@@ -1,43 +1,50 @@
-/* .container {
-  margin-top: 25px;
-  display: grid;
-  grid-template-columns: repeat(3, 20%);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-  justify-content: center;
-  a {
-    cursor: pointer;
-    color: blanchedalmond;
-    text-decoration: none;
-  }
-  .post-card {
-    background-color: #fff;
-    color: black;
-    border-radius: 5px;
-    padding: 20px;
-    font-size: 150%;
 
-    img {
-      height: 200px;
-    }
-    p.content {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
+mat-card-header {
+  padding: 0.1em;
 }
- */
 
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
 
- a {
+mat-card-title {
+  width: 10rem;
+}
+
+mat-card-header a {
+  padding: 0.1em;
+}
+
+mat-card-content {
+  height: 8rem;
+  overflow: scroll;
   cursor: pointer;
-  color: blanchedalmond;
-  text-decoration: none;
 }
 
-.show-content{
-  height: 4rem;
+mat-card-footer {
+  height: 2.5em;
 }
 
+mat-card-actions {
+  height: 2.5em;
+  margin: 0;
+  padding: 0;
+}
 
+a, .material-icons, .mat-icon, mat-icon {
+  cursor: pointer;
+  color: rgb(229, 85, 40);
+}
+
+a:hover, .material-icons:hover {
+  color: rgba(229, 85, 40, 0.5);
+}
+
+.material-icons {
+  color: white;
+}
+
+button {
+  color: rgba(229, 85, 40, 0.5);
+}

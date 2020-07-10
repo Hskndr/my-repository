@@ -11,8 +11,10 @@ import { BlogUserI } from 'src/app/modules/blog/shared/user.interface';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
+  /* Name App */
   public hskndr = '<HSKNDR>';
-
+  /* Toobar Atributes */
+  public opened = false;
   //public isLogged = false;
   //public user: any;
 

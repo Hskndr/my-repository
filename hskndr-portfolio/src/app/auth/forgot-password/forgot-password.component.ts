@@ -23,8 +23,8 @@ export class ForgotPasswordComponent implements OnInit {
       //Sacar el email
       const email = this.userEmail.value;
       await this.authSvc.resetPassword(email);
-      window.alert('Email sent, check your inbox');
-      this.router.navigate(['/login']);
+
+      this.router.navigate(['/verification-email']);
 
     } catch (error) {
       console.log(error);

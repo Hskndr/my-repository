@@ -10,6 +10,8 @@ import { User } from 'src/app/components/shared/models/user.interface';
   styleUrls: ['./lregister.component.scss']
 })
 export class LregisterComponent implements OnInit {
+   // Style
+   hide = true;
   //Método
   registerForm = new FormGroup({
     email: new FormControl(''),

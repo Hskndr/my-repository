@@ -1,29 +1,26 @@
-<!-- CORREGIR EL ERROR
-<div class="card mt-5" *ngIf="user$ | async as user; else loading">
- -->
 
-  <div class="card mt-5" *ngIf="user$ | async as user;">
 
-  <div class="card-body">
-    <h3 class="card-tittle text-center">Thanks you for Registerin</h3>
-    <div class="form-group">
-      <p class="text-center">
-        We have sent a confirmation email to <strong>{{ user?.email }}</strong>
-      </p>
-      <p class="text-center">
-        Please check your email and click on the link to verify your email
-        address.
-      </p>
-    </div>
+<section class="login-register-container">
+  <mat-card class="login-register-card" *ngIf="user$ | async as user;else loading">
 
-    <div class="form-group text-center">
-      <button class="btn btn-primary" (click)="onSendVerificationEmail()">
-        Resend verification email
-      </button>
-    </div>
-  </div>
+    <h3>THANKS YOU FOR REGISTERING</h3>
+    <p class="text-center">
+      We have sent a confirmation email to <strong>{{ user?.email }}</strong>
+    </p>
+    <p class="text-center">
+      Please check your email and click on the link to verify your email
+      address.
+    </p>
+
+    <button mat-button (click)="onSendVerificationEmail()">
+      Resend verification email
+    </button>
+
+  </mat-card>
 
   <ng-template #loading>
-    Loading....
+    <mat-card class="login-register-card">
+      <p>Go to Login</p>
+    </mat-card>
   </ng-template>
-</div>
+</section>

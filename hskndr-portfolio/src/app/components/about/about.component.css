@@ -1,18 +1,39 @@
-img {
-  max-width: 20rem;
+.about-section {
 }
 
-.img-skill{
+article {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about-article {
+  width: 40em;
+}
+
+img .img-about {
+  max-width: 5rem!important;
+  max-height: 5em;
+}
+
+/*Skill*/
+
+.about-article-skills {
+  padding: 2em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-skill {
+  margin: 0.5em;
+  width: 15em;
+  height: 20em;
+}
+
+.img-skill {
   width: 60%;
   height: 60%;
 }
 
-
-/* .example-card {
-  max-width: 400px;
-} */
-
 .example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }

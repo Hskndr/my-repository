@@ -1,117 +1,45 @@
-<div class="container mb-3">
-  <a class="text-center" *ngIf="user$ | async as user">
-    <span
-      class="material-icons"
-      *ngIf="addState == false"
-      (click)="addProject($event)"
-      >add_circle_outline</span
-    >
+<div>
 
-    <span
-      *ngIf="addState == !false"
-      (click)="clearState()"
-      class="material-icons"
-      >close</span
-    >
+  <a *ngIf="user$ | async as user">
+    <span class="material-icons" *ngIf="addState == false" (click)="addProject($event)">add_circle_outline</span>
+
+    <span *ngIf="addState == !false" (click)="clearState()" class="material-icons">close</span>
   </a>
 
-  <div class="card p-2" *ngIf="addState == true">
-    <h4 class="orange">Add New Project</h4>
+  <mat-card *ngIf="addState == true">
+    <h4>ADD NEW PROJECT</h4>
 
     <form (ngSubmit)="onSaveProject(newProjectForm)" #newProjectForm="ngForm">
-      <div class="form-row">
-        <div class="col-md-12 mb-3">
-          <label for="title">Project Name</label>
-          <input
-            [(ngModel)]="project.title"
-            #title="ngModel"
-            name="title"
-            type="text"
-            class="form-control"
-            id="title"
-            required
-          />
-        </div>
-      </div>
 
-      <div class="form-row">
-        <div class="col-md-6 mb-3">
-          <label for="urlRepo">Repositorio</label>
-          <input
-            [(ngModel)]="project.urlRepo"
-            #urlRepo="ngModel"
-            name="urlRepo"
-            type="text"
-            class="form-control"
-            id="urlRepo"
-            required
-          />
-        </div>
+      <mat-form-field appearance="fill">
+        <mat-label>Project Name</mat-label>
+        <input matInput [(ngModel)]="project.title" #title="ngModel" name="title" type="text" id="title" maxlength="10" required>
+      </mat-form-field>
+      <br>
 
-        <div class="col-md-6 mb-3">
-          <label for="urlProject">Proyecto</label>
-          <input
-            [(ngModel)]="project.urlProject"
-            #urlProject="ngModel"
-            name="urlProject"
-            type="text"
-            class="form-control"
-            id="urlProject"
-            required
-          />
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="col-md-12 mb-3">
-          <label for="description">Description</label>
-          <textarea
-            [(ngModel)]="project.description"
-            #description="ngModel"
-            name="description"
-            class="form-control"
-            id="description"
-            placeholder="Required example textarea"
-            required
-          ></textarea>
-        </div>
-      </div>
+      <mat-form-field appearance="fill">
+        <mat-label>Repository</mat-label>
+        <input matInput [(ngModel)]="project.urlRepo" #urlRepo="ngModel" name="urlRepo" type="text" class="form-control"
+          id="urlRepo" required />
+      </mat-form-field>
+      <br>
 
-      <div class="form-row text-center">
-        <div class="col-md-6 mb-3">
-          <label for="customFile">Image</label>
-          <div class="custom-file">
-            <input
-              type="file"
-              class="custom-file-input"
-              id="customFile"
+      <mat-form-field appearance="fill">
+        <mat-label>Project</mat-label>
+        <input matInput [(ngModel)]="project.urlProject" #urlProject="ngModel" name="urlProject" type="text"
+          class="form-control" id="urlProject" required />
+      </mat-form-field>
+      <br>
 
-            />
-            <label class="custom-file-label" for="customFile"
-              >Choose file</label
-            >
-          </div>
-        </div>
+      <mat-form-field appearance="fill">
+        <mat-label>Project Description</mat-label>
+        <textarea matInput [(ngModel)]="project.description" #description="ngModel" name="description"
+          class="form-control" id="description" placeholder="Required example textarea" required></textarea>
+      </mat-form-field>
+      <br>
 
-        <div class="form-group col-md-6 mb-3">
-          <label for="inputState">Skill</label>
-          <select
-            id="skills"
-            class="form-control"
-            [(ngModel)]="project.skills"
-            #skills="ngModel"
-            name="skills"
-          >
-            <option selected>Choose...</option>
-            <option>HTML</option>
-            <option>CSS</option>
-            <option>JAVASCRIPT</option>
-            <option>ANGULAR</option>
-            <option>WORDPRESS</option>
-          </select>
-        </div>
-      </div>
+      <button mat-button color="warn" type="submit">Add Project</button>
 
-      <button class="btn btn-primary" type="submit">Add Project</button>
     </form>
-  </div>
+  </mat-card>
 </div>

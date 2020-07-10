@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LregisterRoutingModule } from './lregister-routing.module';
 import { LregisterComponent } from './lregister.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MaterialModule } from '../../material.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CommonModule,
     LregisterRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MaterialModule
   ]
 })
 export class LregisterModule { }

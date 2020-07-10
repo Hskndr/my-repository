@@ -1,59 +1,45 @@
-<div class="row building">
-  <div class="col-md-6 mx-auto mt-5">
-    <div class="card">
-      <div class="card-body">
-        <h1 class="text-center">LOGIN</h1>
-        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input
-              type="email"
-              class="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              formControlName="email"
-            />
+<section class="login-register-container">
+  <mat-card class="login-register-card">
 
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input
-              type="password"
-              class="form-control"
-              id="exampleInputPassword1"
-              formControlName="password"
-            />
-          </div>
+    <h2>LOGIN</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
 
-          <button type="submit" class="btn btn-lg w-100">LOGIN</button>
-        </form>
-        <div class="dropdown-divider"></div>
-        <p class="text-center">Or Login with</p>
-        <div class="dropdown-divider"></div>
-        <div class="form-group">
-          <a class="btn btn-lg btn-google mt-2" (click)="onGoogleLogin()">
-            <img
-              src="assets/logo/google-icon.svg"
-              width="30"
-              height="30"
-              alt=""
-              loading="lazy"
-            />
-            Google</a
-          >
-        </div>
-        <div class="form-group mt-3">
-          <p>
-            Create an account ?
-            <a [routerLink]="['/register']"> Register</a>
-          </p>
-        </div>
-        <div class="form-group mt-3">
-          <p>
-            <a [routerLink]="['/forgot-password']">Forgot Password</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your Email</mat-label>
+        <input matInput placeholder="Example@example.com" type="email" formControlName="email">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button mat-button type="submit">LOGIN</button>
+    </form>
+
+    <hr>
+    <p>
+      Or login with
+    </p>
+    <hr>
+
+    <button mat-button (click)="onGoogleLogin()">
+      <img src="assets/logo/google-icon.svg" width="30" height="30" alt="Google Logo" loading="lazy" />
+      Google
+    </button>
+    <p>
+      Create an account ?
+      <a [routerLink]="['/register']"> Register</a>
+    </p>
+    <p>
+      <a [routerLink]="['/forgot-password']">Forgot Password</a>
+    </p>
+
+  </mat-card>
+
+</section>

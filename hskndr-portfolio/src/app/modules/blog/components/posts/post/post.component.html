@@ -1,22 +1,25 @@
+<mat-card-header>
 
-<div class="card h-100">
-  <img [src]="post.imagePost" class="img-thumbnail h-100 w-100" alt="..." />
-  <div class="card-body">
-    <h5 class="card-title">
-      <a [routerLink]="['/blog/blog-post', post.id]">
-        {{ post.titlePost }}
-      </a>
-    </h5>
-    <div class="overflow-hidden show-content">
-      <p class="card-text">{{ post.contentPost }}</p>
-    </div>
-  </div>
-  <div class="card-footer">
-    <small
-      class="badge badge-warning m-1 p-2"
-      *ngFor="let tag of post.tagsPost"
-      [ngClass]="tag"
-      >{{ tag | uppercase}}</small
-    >
-  </div>
-</div>
+  <div mat-card-avatar class="example-header-image"></div>
+
+  <mat-card-title>
+    <a [routerLink]="['/blog/blog-post', post.id]">
+      {{ post.titlePost }}
+    </a>
+  </mat-card-title>
+
+</mat-card-header>
+<mat-divider></mat-divider>
+<img mat-card-image [src]="post.imagePost" alt="Image Post" />
+<mat-card-content>
+  <p>
+    {{ post.contentPost }}
+  </p>
+</mat-card-content>
+
+<mat-card-actions>
+  <button mat-button *ngFor="let tag of post.tagsPost" [ngClass]="tag">{{ tag | uppercase}}</button>
+</mat-card-actions>
+<mat-card-footer>
+
+</mat-card-footer>
