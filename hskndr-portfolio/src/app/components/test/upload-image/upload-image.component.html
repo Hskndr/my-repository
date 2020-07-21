@@ -1,0 +1,33 @@
+<p>upload-image works!</p>
+
+
+<div class="contenedor" style="border: 10px solid red;">
+  <div class="contenedor_formulario">
+    <h1 class="is-size-1">Subir archivos a Cloud Storage</h1>
+    <a href="https://medium.com/angular-chile/subir-archivos-a-firebase-cloud-storage-con-angular-7-d735d5dbfa53"> Referencia de trabajo aqui</a>
+    <p class="download" *ngIf="finalizado">URL de descarga:
+      <a href="{{ URLPublica }}" target="_blank">Descargar</a>
+    </p>
+    <form [formGroup]="archivoForm" (ngSubmit)="subirArchivo()">
+      <div class="file has-name is-boxed">
+        <label class="file-label">
+          <input class="file-input" type="file" formControlName="archivo" (change)="cambioArchivo($event)">
+          <span class="file-cta">
+            <span class="file-label">
+              Elegir un archivo…
+            </span>
+          </span>
+          <span class="file-name">
+            {{ mensajeArchivo }}
+          </span>
+        </label>
+      </div>
+      <hr>
+      <progress *ngIf="porcentaje > 0 && porcentaje < 100" class="progress is-large is-success" value="{{porcentaje}}"
+        max="100">{{porcentaje}}%</progress>
+      <button
+        [ngClass]="{'button': true, 'is-success': true, 'is-large': true, 'is-loading': porcentaje > 0 && porcentaje < 100}"
+        [disabled]="!archivoForm.valid && (porcentaje > 0 && porcentaje < 100)">Subir archivo</button>
+    </form>
+  </div>
+</div>

@@ -16,5 +16,6 @@ mat-card{
 }
 
 mat-label{
-  color: #fff;
+ /*  color: #FFFFFF; */
+ color: black;
 }

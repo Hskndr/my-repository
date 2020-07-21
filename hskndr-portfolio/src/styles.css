@@ -5,13 +5,12 @@
 
 body {
   background-color: rgba(22, 26, 47, 0.95);
-  color: rgba(229, 85, 40, 0.5)!important;
+  /*color: rgba(229, 85, 40, 0.5)!important;*/
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 1rem!important;
   /* Delete */
-  /*   color: black;
+  color: black;
   font-style: italic;
- */
 }
 
 header {
@@ -63,7 +62,8 @@ footer .mat-toolbar {
 
 a {
   text-decoration: none;
-  color: rgb(38, 10, 218);
+  /*   color: rgb(38, 10, 218);
+ */
 }
 
 /*Buttons*/
@@ -79,11 +79,17 @@ button {
 /*Headers*/
 
 h1, h3, h5 {
-  color: rgba(22, 26, 47, 1)
+     color: rgba(22, 26, 47, 1)
+
 }
 
 h2, h4, h6 {
-  color: rgba(229, 85, 40, 1)
+     color: rgba(229, 85, 40, 1)
+
+}
+
+p {
+  color: brown;
 }
 
 /* AUTH */
@@ -127,7 +133,8 @@ form {
 
 .wrap-content {
   background-color: rgba(22, 26, 47, 0.9);
-  color: #fff;
+  /*   color: #fff;
+ */
   width: 19em;
   margin: 0.5em;
 }

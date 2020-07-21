@@ -24,7 +24,12 @@ import { CanEditGuard } from './auth/guards/can-edit.guard';
 import { CanSuscriptorGuard } from './auth/guards/can-suscriptor.guard';
 import { CanAdminGuard } from './auth/guards/can-admin.guard';
 import { MaterialModule } from './material.module';
+/* COMPONENTE EXTRAS */
 import { TestComponent } from './components/test/test.component';
+import { RFormComponent } from './components/test/r-form/r-form.component';
+import { TFormComponent } from './components/test/t-form/t-form.component';
+import { TransferBudgetComponent } from './components/transfer-budget/transfer-budget.component';
+import { UploadImageComponent } from './components/test/upload-image/upload-image.component';
 
 
 @NgModule({
@@ -36,6 +41,10 @@ import { TestComponent } from './components/test/test.component';
     AboutComponent,
     SendEmailComponent,
     TestComponent,
+    RFormComponent,
+    TFormComponent,
+    TransferBudgetComponent,
+    UploadImageComponent,
 
 
   ],

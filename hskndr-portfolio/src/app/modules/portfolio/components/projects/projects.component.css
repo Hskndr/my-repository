@@ -42,7 +42,8 @@ a:hover, .material-icons:hover {
 }
 
 .material-icons {
-  color: white;
+ /*  color: #FFFFFF; */
+ color: black;
 }
 
 button {
@@ -52,11 +53,13 @@ button {
 /* Form edit */
 
 form {
-  color: #fff;
+  /*  color: #FFFFFF; */
+  color: black;
 }
 
 mat-label {
-  color: #fff;
+  /*  color: #FFFFFF; */
+  color: black;
 }
 
 /* .card {

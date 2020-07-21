@@ -6,12 +6,22 @@ import { SendEmailComponent } from './auth/send-email/send-email.component';
 import { CanEditGuard } from './auth/guards/can-edit.guard';
 import { CanSuscriptorGuard } from './auth/guards/can-suscriptor.guard';
 import { TestComponent } from './components/test/test.component';
+import { TransferBudgetComponent } from './components/transfer-budget/transfer-budget.component';
+import { UploadImageComponent } from './components/test/upload-image/upload-image.component';
 
 
 const routes: Routes = [
   {
+    path: 'upload',
+    component: UploadImageComponent
+  },
+  {
     path: 'test',
     component: TestComponent
+  },
+  {
+    path: 'budget',
+    component: TransferBudgetComponent
   },
   // Users
   {
