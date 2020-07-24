@@ -2,33 +2,49 @@
   <mat-toolbar>
     <mat-toolbar-row>
 
+
       <button mat-button routerLink="home">
         <img src="assets/HatchfulExport-All/logo_transparent.png" class="nav-img" />
       </button>
 
-      <button mat-button routerLinkActive="active" [routerLink]="['home']">
-        <span class="material-icons">home</span>
-        <span>Home</span>
-      </button>
+      <div fxHide.gt-xs>
+        <button mat-icon-button (click)="onToggleSidenav()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
 
-      <button mat-button routerLinkActive="active" [routerLink]="['/portfolio']">
-        <span class="material-icons"> folder_open </span>
-        <span>Portfolio</span>
-      </button>
+      <div fxFlex fxLayout fxLayoutAlign="start" fxHide.xs>
+        <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+          <li>
 
-      <button mat-button routerLinkActive="active" [routerLink]="['blog/home-blog']">
-        <span class="material-icons">receipt </span>
-        <span>Blog</span>
-      </button>
 
-      <button mat-button routerLinkActive="active" [routerLink]="['/test']">
-        <span class="material-icons">group_work </span>
-        <span>Test</span>
-      </button>
+            <button mat-button routerLinkActive="active" [routerLink]="['home']">
+              <span class="material-icons">home</span>
+              <span>Home</span>
+            </button>
+          </li>
+          <li>
+            <button mat-button routerLinkActive="active" [routerLink]="['/portfolio']">
+              <span class="material-icons"> folder_open </span>
+              <span>Portfolio</span>
+            </button>
+          </li>
+          <li>
+            <button mat-button routerLinkActive="active" [routerLink]="['blog/home-blog']">
+              <span class="material-icons">receipt </span>
+              <span>Blog</span>
+            </button>
+          </li>
+          <li>
+            <button mat-button routerLinkActive="active" [routerLink]="['/test']">
+              <span class="material-icons">group_work </span>
+              <span>Test</span>
+            </button>
+          </li>
 
-      <!-- Agregar al Finalizar -->
+          <!-- Agregar al Finalizar -->
 
-      <!--  <button mat-button routerLinkActive="active" [routerLink]="['shopping']">
+          <!--  <button mat-button routerLinkActive="active" [routerLink]="['shopping']">
         <span class="material-icons">local_grocery_store </span>
         <span>Shopping</span>
       </button>
@@ -38,39 +54,45 @@
         <span>Finance</span>
       </button> -->
 
-      <span class="tool-bar-space"></span>
+          <span class="tool-bar-space"></span>
 
-      <div class="user-info" *ngIf="user$ | async as user; else login">
+          <li>
+            <div class="user-info" *ngIf="user$ | async as user; else login">
 
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-          <img class="imageProfileNavbar" [src]="user.photoURL" width="45" height="45" alt="" loading="lazy" />
-        </button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item>
-            <span>{{ user?.email }}</span>
-          </button>
-          <button mat-menu-item routerLinkActive="active" *ngIf="user" (click)="onLogout()">
-            <mat-icon>exit_to_app</mat-icon>
-            <span>Logout</span>
-          </button>
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <img class="imageProfileNavbar" [src]="user.photoURL" width="45" height="45" alt="" loading="lazy" />
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <span>{{ user?.email }}</span>
+                </button>
+                <button mat-menu-item routerLinkActive="active" *ngIf="user" (click)="onLogout()">
+                  <mat-icon>exit_to_app</mat-icon>
+                  <span>Logout</span>
+                </button>
 
-        </mat-menu>
+              </mat-menu>
+
+            </div>
+          </li>
+          <li>
+            <ng-template #login>
+              <button mat-button routerLinkActive="active" [routerLink]="['register']">
+                <span class="material-icons">add_circle_outline</span>
+                <span>Register</span>
+              </button>
+
+              <button mat-button outerLinkActive="active" [routerLink]="['login']">
+                <span class="material-icons">login</span>
+                <span>Login</span>
+              </button>
+            </ng-template>
+          </li>
+        </ul>
 
       </div>
-
-      <ng-template #login>
-        <button mat-button routerLinkActive="active" [routerLink]="['register']">
-          <span class="material-icons">add_circle_outline</span>
-          <span>Register</span>
-        </button>
-
-        <button mat-button outerLinkActive="active" [routerLink]="['login']">
-          <span class="material-icons">login</span>
-          <span>Login</span>
-        </button>
-      </ng-template>
-
     </mat-toolbar-row>
   </mat-toolbar>
 
 </nav>
+

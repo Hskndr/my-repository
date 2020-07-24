@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -15,13 +15,15 @@ export class NavbarComponent {
   public hskndr = '<HSKNDR>';
   /* Toobar Atributes */
   public opened = false;
-  //public isLogged = false;
-  //public user: any;
+  // public isLogged = false;
+  // public user: any;
 
-  //Devuelve el objeto user.
+  // Devuelve el objeto user.
 
   public user$: Observable<User> = this.authSvc.afAuth.user;
 
+  /* Responsive Toolbar */
+  @Output() public sidenavToggle = new EventEmitter();
   constructor(
     private authSvc: AuthService,
     private router: Router
@@ -49,5 +51,12 @@ export class NavbarComponent {
       console.log(error);
     }
   }
+
+
+  // responsive toolbar
+  public onToggleSidenav = () => {
+    this.sidenavToggle.emit();
+  }
+  // End Class
 }
 

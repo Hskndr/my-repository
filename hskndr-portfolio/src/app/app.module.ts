@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 /* COMPONENTS */
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
@@ -30,6 +31,7 @@ import { RFormComponent } from './components/test/r-form/r-form.component';
 import { TFormComponent } from './components/test/t-form/t-form.component';
 import { TransferBudgetComponent } from './components/transfer-budget/transfer-budget.component';
 import { UploadImageComponent } from './components/test/upload-image/upload-image.component';
+import { SideNavListComponent } from './components/shared/navbar/side-nav-list/side-nav-list.component';
 
 
 @NgModule({
@@ -45,6 +47,7 @@ import { UploadImageComponent } from './components/test/upload-image/upload-imag
     TFormComponent,
     TransferBudgetComponent,
     UploadImageComponent,
+    SideNavListComponent,
 
 
   ],
@@ -60,7 +63,8 @@ import { UploadImageComponent } from './components/test/upload-image/upload-imag
     // Para el Blog
     AngularFirestoreModule,
     AngularFireStorageModule,
-    //
+    // Flex layout
+    FlexLayoutModule,
 
 
   ],
@@ -70,7 +74,7 @@ import { UploadImageComponent } from './components/test/upload-image/upload-imag
     CanAdminGuard,
     CanSuscriptorGuard,
     AngularFirestore,
-    //Blog
+    // Blog
     { provide: StorageBucket, useValue: 'gs://portfolio-login-392bb.appspot.com' }
   ],
   exports: [],

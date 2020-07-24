@@ -1,0 +1,49 @@
+<mat-nav-list>
+  <a mat-list-item (click)="onSidenavClose()" >
+    <span class="material-icons">close</span>
+    <span></span>
+  </a>
+
+  <a mat-list-item (click)="onSidenavClose()" [routerLink]="['home']">
+    <span class="material-icons">home</span>
+    <span>Home</span>
+  </a>
+
+  <a mat-list-item (click)="onSidenavClose()" [routerLink]="['/portfolio']">
+    <span class="material-icons"> folder_open </span>
+    <span>Portfolio</span>
+  </a>
+
+  <a mat-list-item (click)="onSidenavClose()" [routerLink]="['blog/home-blog']">
+    <span class="material-icons">receipt </span>
+    <span>Blog</span>
+  </a>
+
+  <a mat-list-item (click)="onSidenavClose()" [routerLink]="['/test']">
+    <span class="material-icons">group_work </span>
+    <span>Test</span>
+  </a>
+
+  <div class="user-info" *ngIf="user$ | async as user; else login">
+
+    <img class="imageProfileNavbar" [src]="user.photoURL" width="25" height="25" alt="" loading="lazy" />
+
+    <span>{{ user?.email }}</span>
+    <a mat-list-item (click)="onSidenavClose()" *ngIf="user" (click)="onLogout()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Logout</span>
+    </a>
+
+  </div>
+
+  <ng-template #login>
+    <a mat-list-item (click)="onSidenavClose()" [routerLink]="['register']">
+      <span class="material-icons">add_circle_outline</span>
+      <span>Register</span>
+    </a>
+
+    <a mat-list-item (click)="onSidenavClose()" [routerLink]="['login']">
+      <span class="material-icons">login</span>
+      <span>Login</span>
+    </a>
+  </ng-template>
