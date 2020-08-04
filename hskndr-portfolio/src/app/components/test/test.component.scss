@@ -1,12 +1,13 @@
 article {
-  display: flex;
+  /*   display: flex;
+ */
   div {
-    width: 50%;
-    margin: 1rem;
+    /*  width: 50%;*/
+    padding: 1rem;
     background-color: gray;
   }
 }
 
-.article-test{
+.article-test {
   display: inline;
 }

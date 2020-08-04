@@ -25,6 +25,7 @@ export class TransferBudgetComponent implements OnInit {
   // Price transfer
   distanceBaseService = 5;
   transferPrice = 10;
+  transferDistance = 7;
   servicePrice = 700;
   kmExtraService = 50;
   tollsPrice = 100;
@@ -54,7 +55,7 @@ export class TransferBudgetComponent implements OnInit {
     let secondPointToHome = this.transferForm.get('point2to0').value;
 
     // price 0 to 1
-    if (homeFirstPoint > this.transferPrice) {
+    if (homeFirstPoint > this.transferDistance) {
       this.price0to1 = homeFirstPoint * this.transferPrice;
     } else { this.price0to1 = null; }
 
@@ -65,7 +66,7 @@ export class TransferBudgetComponent implements OnInit {
     } else { this.price1to2 = this.servicePrice; }
 
     // price 2 to 0
-    if (secondPointToHome > this.transferPrice) {
+    if (secondPointToHome > this.transferDistance) {
       this.price2to0 = secondPointToHome * this.transferPrice;
     } else { this.price2to0 = null; }
 

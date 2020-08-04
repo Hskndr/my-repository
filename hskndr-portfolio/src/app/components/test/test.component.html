@@ -1,18 +1,30 @@
-<p>test works!</p>
 <article class="article-test">
   <app-transfer-budget></app-transfer-budget>
 </article>
 <br>
-<article>
 
-  <div>
-    <app-r-form></app-r-form>
-  </div>
-  <div>
-    <app-t-form></app-t-form>
-  </div>
-</article>
+<hr>
+{{person1.namePerson}} <button (click)="personRuns()">runs</button>
 <br>
+{{ninja1.namePerson}} <button (click)="ninjaInfo()">ninja info</button>
+<hr>
+
+<br>
+
+<article fxLayout="row" fxLayoutAlign="space-around center">
+
+  <mat-card>
+    <app-r-form></app-r-form>
+  </mat-card>
+  <mat-card>
+    <app-t-form></app-t-form>
+  </mat-card>
+</article>
+
+<br>
+
 <article class="article-test">
-  <app-upload-image></app-upload-image>
+  <mat-card>
+    <app-upload-image></app-upload-image>
+  </mat-card>
 </article>

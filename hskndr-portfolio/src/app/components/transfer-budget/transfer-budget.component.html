@@ -38,7 +38,21 @@
     <h3>Agregar el campo de busqueda de las direcciones</h3>
 
   </mat-card>
-  <mat-card>
+
+  <mat-card class="coti">
+    <h3>Cotización Cliente Nro</h3>
+
+    <mat-label>Punto de Carga a Punto de Descarga: </mat-label>
+    {{price0to1+price1to2+price2to0 | currency: 'ARS':'code'}}
+    <br>
+
+    <mat-label>Viaje Adicional </mat-label>{{priceAdSvc|currency: 'ARS':'code'}}
+    <hr>
+    <mat-label>Precio Total </mat-label>{{totalPrice|currency: 'ARS':'code'}}
+
+  </mat-card>
+
+  <mat-card class="coti">
     <h3>Cotización Principal</h3>
     <mat-label>Casa a Punto de Carga: </mat-label>{{price0to1|currency: 'ARS':'code'}}
     <br>
@@ -52,16 +66,6 @@
 
   </mat-card>
 
-  <mat-card>
-    <h3>Cotización Cliente Nro</h3>
 
-    <mat-label>Punto de Carga a Punto de Descarga: </mat-label>{{price1to2|currency: 'ARS':'code'}}
-    <br>
-
-    <mat-label>Viaje Adicional </mat-label>{{priceAdSvc|currency: 'ARS':'code'}}
-    <hr>
-    <mat-label>Precio Total </mat-label>{{totalPrice|currency: 'ARS':'code'}}
-
-  </mat-card>
 
 </article>

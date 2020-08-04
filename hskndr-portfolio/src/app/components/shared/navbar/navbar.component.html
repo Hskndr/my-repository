@@ -13,11 +13,9 @@
         </button>
       </div>
 
-      <div fxFlex fxLayout fxLayoutAlign="start" fxHide.xs>
+      <div fxFlex fxLayout="row" fxLayoutAlign="start" fxHide.xs>
         <ul fxLayout fxLayoutGap="15px" class="navigation-items">
           <li>
-
-
             <button mat-button routerLinkActive="active" [routerLink]="['home']">
               <span class="material-icons">home</span>
               <span>Home</span>
@@ -54,7 +52,7 @@
         <span>Finance</span>
       </button> -->
 
-          <span class="tool-bar-space"></span>
+          <span fxLayoutAlign="space-between" class="tool-bar-space"></span>
 
           <li>
             <div class="user-info" *ngIf="user$ | async as user; else login">
