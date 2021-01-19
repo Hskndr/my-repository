@@ -5,12 +5,10 @@
 <h2>PROJECTS</h2>
 
 <article class="wrap-container" *ngIf="projects?.length > 0; else noProjects">
+
   <mat-card class="wrap-content" *ngFor="let project of projects">
 
     <mat-card-header>
-
-      <div mat-card-avatar class="example-header-image"></div>
-
       <mat-card-title>{{ project.title|uppercase }}</mat-card-title>
       <a *ngIf="user$ | async as user">
         <span *ngIf="editState == false" (click)="editProject($event, project)" class="material-icons">mode_edit</span>
@@ -19,7 +17,7 @@
     </mat-card-header>
 
     <!-- Form Edit -->
-    <mat-card class="form-container card over-absolute" *ngIf="editState && projectToEdit.id === project.id">
+    <mat-card class="form-container over-absolute" *ngIf="editState && projectToEdit.id === project.id">
       <form (ngSubmit)="onUpdateProject(project)">
         <mat-form-field appearance="fill">
           <mat-label class="orange">Project Name</mat-label>
@@ -38,12 +36,6 @@
             id="urlProject" required>
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label class="orange">Select</mat-label>
-          <mat-select id="skills" [(ngModel)]="project.skills" #skills="ngModel" name="skills">
-            <mat-option value="option">Option</mat-option>
-          </mat-select>
-        </mat-form-field>
 
         <mat-form-field appearance="fill">
           <mat-label class="orange">Textarea</mat-label>
@@ -66,7 +58,6 @@
     </mat-card>
     <!-- Form Edit -->
     <mat-divider></mat-divider>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
     <mat-card-content>
       <p>
         {{ project.description }}

@@ -7,7 +7,9 @@ mat-card-header {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }
-
+img{
+  height: 16rem;
+}
 mat-card-title {
   width: 10rem;
 }
